@@ -15,7 +15,7 @@ phone: (39) 3892895711
 
 # homepage tiles
 tiles-source: pages # accepts "posts" or "pages"
-tiles-count: 7
+tiles-count: 6
 # About me
 # Professional Resume
 # Interests and Hobbies
@@ -31,7 +31,7 @@ socials:
   GitHub: https://github.com/Sepehr-Samavati
   GitLab:
   Google-Plus: 
-  Instagram: https://www.instagram.com/skyskyvision
+  Instagram: https://www.instagram.com/skyskiesvision
   LinkedIn: https://www.linkedin.com/in/Sepehr-Samavati
   Twitter: https://x.com/SepehrSamavati
   Facebook:
