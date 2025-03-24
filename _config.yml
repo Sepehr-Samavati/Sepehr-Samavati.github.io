@@ -2,7 +2,8 @@
 title: Sepehr Samavati
 subtitle: Sepehr Samavati
 email: Sepehr.Samavati.Official@gmail.com
-description: Personal Page of Sepehr Samavati
+avatar: /assets/images/my_pic.img
+description: I'm a software engineer. I'm a photographer. I'm a leader. And so much more. Want to know more?
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://sepehr-samavati.github.io" # the base hostname & protocol for your site
 author:
@@ -17,7 +18,7 @@ phone: (39) 3892895711
 tiles-source: pages # accepts "posts" or "pages"
 tiles-count: 6
 # About me
-# Professional Resume
+# My Resume
 # Interests and Hobbies
 # Photography
 # Projects

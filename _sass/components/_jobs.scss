@@ -1,0 +1,94 @@
+.experience {
+    border-left: 8px solid _palette(accent1);
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px _palette(accent1);
+}
+.experience a {
+    text-decoration: none;
+}
+.experience h2 {
+    margin: 0;
+    font-size: xx-large;
+    color: _palette(accent1);
+}
+.experience p {
+    margin: 0 0 (_size(element-margin) * 0.5) 0;
+}
+.experience ul {
+    margin: 0 0 (_size(element-margin) * 0.5) 0;
+}
+.experience_place {
+    font-weight: bold;
+    font-size: x-large;
+    color: _palette(accent6);
+    border:none;
+}
+.duration {
+    font-style: italic;
+    font-size: large;
+    color: _palette(fg-middle);
+}
+
+// text-decoration: none;
+
+.job {
+    @extend .experience
+}
+.company {
+    @extend .experience_place
+}
+.skills {
+    padding: 5px;
+    background: _palette(bg-alt);
+    display: inline-block;
+    border-radius: 5px;
+    font-size: 0.9em;
+}
+
+.education {
+    @extend .experience
+}
+.university {
+    @extend .experience_place;
+}
+
+
+.skills-container {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+.skill-category {
+    flex: 1;
+    border-top: 4px solid _palette(accent1);
+    min-width: 200px;
+    background:_palette(bg);
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0px 2px 5px _palette(accent1);
+}
+.skill-category h3 {
+    margin-bottom: 5px;
+}
+.skill-category hr {
+    &.minor {
+        margin: 0;
+        margin-bottom: 5px;
+    }
+}
+.skill-category ul {
+    list-style: none;
+    padding: 0;
+}
+.skill-category ul li {
+    background: _palette(accent2);
+    color: white;
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin: 3px 2px;
+    font-size: 18px;
+    font-weight: bold;
+}
