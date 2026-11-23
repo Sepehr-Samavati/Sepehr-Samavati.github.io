@@ -1,0 +1,85 @@
+# Content of the Resume page (/resume/). Edit through Pages CMS or by hand.
+# Entries are shown in the order they appear here (put the newest first).
+
+experience:
+  - title: Software Engineer
+    company: HCLTech
+    company_url: https://www.hcltech.com/
+    start: Jan 2024
+    end: Dec 2024          # leave empty for "Present"
+    summary:               # optional paragraph
+    bullets:
+      - Collaborated on a team for an Ericsson project to develop and customize the Linux OS for modem boards, involving Linux kernel programming and driver modification.
+      - Used Bitbake and Yocto to streamline build automation and create tailored Linux distributions for embedded systems.
+      - Gained foundational experience with u-boot, working on boot process tasks and debugging to ensure reliable system startup.
+    skills: [Linux Kernel, Embedded Systems, BitBake, Yocto, Kernel Drivers, U-Boot]
+
+  - title: Software Developer
+    company: HCLTech
+    company_url: https://www.hcltech.com/
+    start: Aug 2022
+    end: Dec 2023
+    summary:
+    bullets:
+      - Worked at HCL as part of a dedicated team focused on software development for Ericsson's modems and radios.
+      - Key responsibilities included designing and implementing code for the modems.
+      - Utilized object-oriented design principles and design patterns to create the software.
+      - Primarily used the C++ programming language for development.
+    skills: [Design Patterns, C++, Object Oriented Design]
+
+  - title: Data Analysis Consultant
+    company: 7SangTeam
+    company_url: https://7sangteam.ir/
+    start: Jan 2022
+    end: Oct 2022
+    summary: Implemented statistical methods and software to analyze employee engagement.
+    bullets: []
+    skills: [Python (Programming Language), SciPy, Seaborn, Statistical Data Analysis]
+
+education:
+  - degree: Master’s Degree, Automation and Control Engineering
+    school: Politecnico di Milano
+    school_url: https://www.polimi.it/
+    start: "2019"
+    end: "2022"
+    description:
+
+  - degree: Bachelor’s Degree, Electrical Engineering
+    school: University of Tehran
+    school_url: https://ut.ac.ir
+    start: "2013"
+    end: "2017"
+    description:
+
+skills:
+  - category: Technical Skills
+    items:
+      - C/C++
+      - Python
+      - Algorithms
+      - Statistical Data Analysis
+      - Object-Oriented Programming
+      - Design Patterns
+      - Embedded Systems
+      - Linux Kernel Development
+      - Yocto/Bitbake
+      - SQL/SQLite
+      - U-Boot
+      - Machine Learning
+      - Kotlin
+      - Java
+  - category: Soft Skills
+    items:
+      - Communication
+      - Leadership
+      - Problem-Solving
+      - Team Collaboration
+      - Social Responsibility
+      - Project Management
+      - Flexibility
+      - Crisis Management
+  - category: Languages
+    items:
+      - English
+      - Persian
+      - Italian

@@ -18,101 +18,51 @@ nav_order: 2
 			<h1>My Resume</h1>
 		</header>
 
-<!-- Content -->
-
+<!-- Content: everything below comes from _data/resume.yml -->
+{% assign resume = site.data.resume %}
 
 <h2 id="Experience">Work Experience</h2>
+{% for job in resume.experience %}
 	<div class="job">
-		<h3>Software Engineer</h3>
-		<a href="https://www.hcltech.com/" target="_blank" rel="noopener noreferrer" class="company">HCLTech</a>
-		<div class="duration">Jan 2024 - Dec 2024</div>
+		<h3>{{ job.title }}</h3>
+		{% if job.company_url %}<a href="{{ job.company_url }}" target="_blank" rel="noopener noreferrer" class="company">{{ job.company }}</a>{% else %}<span class="company">{{ job.company }}</span>{% endif %}
+		<div class="duration">{{ job.start }} - {{ job.end | default: "Present" }}</div>
+		{% if job.summary %}<p>{{ job.summary }}</p>{% endif %}
+		{% if job.bullets and job.bullets.size > 0 %}
 		<ul>
-			<li>Collaborated on a team for an Ericsson project to develop and customize the Linux OS for modem boards, involving Linux kernel programming and driver modification.</li>
-			<li>Used Bitbake and Yocto to streamline build automation and create tailored Linux distributions for embedded systems.</li>
-			<li>Gained foundational experience with u-boot, working on boot process tasks and debugging to ensure reliable system startup.</li>
+			{% for bullet in job.bullets %}<li>{{ bullet }}</li>
+			{% endfor %}
 		</ul>
-		<div class="skills">Linux Kernel, Embedded Systems, BitBake, Yocto, Kernel Drivers, U-Boot</div>
+		{% endif %}
+		{% if job.skills and job.skills.size > 0 %}<div class="skills">{{ job.skills | join: ", " }}</div>{% endif %}
 	</div>
-	<div class="job">
-		<h3>Software Developer</h3>
-		<a href="https://www.hcltech.com/" target="_blank" rel="noopener noreferrer" class="company">HCLTech</a>
-		<div class="duration">Aug 2022 - Dec 2023</div>
-		<ul>
-			<li>Worked at HCL as part of a dedicated team focused on software development for Ericsson's modems and radios.</li>
-			<li>Key responsibilities included designing and implementing code for the modems.</li>
-			<li>Utilized object-oriented design principles and design patterns to create the software.</li>
-			<li>Primarily used the C++ programming language for development.</li>
-		</ul>
-		<div class="skills">Design Patterns, C++, Object Oriented Design</div>
-	</div>
-	<div class="job">
-		<h3>Data Analysis Consultant</h3>
-		<a href="https://7sangteam.ir/" target="_blank" rel="noopener noreferrer" class="company">7SangTeam</a>
-		<div class="duration">Jan 2022 - Oct 2022</div>
-		<p>Implemented statistical methods and software to analyze employee engagement.</p>
-		<div class="skills">Python (Programming Language), SciPy, Seaborn, Statistical Data Analysis</div>
-	</div>
-        
+{% endfor %}
+
 <hr class="minor" />
 <h2 id="Education">Education</h2>
+{% for edu in resume.education %}
 	<div class="education">
-		<h3>Master’s Degree, Automation and Control Engineering</h3>
-		<a href="https://www.polimi.it/" target="_blank" rel="noopener noreferrer" class="university">Politecnico di Milano</a>
-		<div class="duration">2019 - 2022</div>
-    </div>
-	<div class="education">
-		<h3>Bachelor’s Degree, Electrical Engineering</h3>
-		<a href="https://ut.ac.ir" target="_blank" rel="noopener noreferrer" class="university">University of Tehran</a>
-		<div class="duration">2013 - 2017</div>
-    </div>
+		<h3>{{ edu.degree }}</h3>
+		{% if edu.school_url %}<a href="{{ edu.school_url }}" target="_blank" rel="noopener noreferrer" class="university">{{ edu.school }}</a>{% else %}<span class="university">{{ edu.school }}</span>{% endif %}
+		<div class="duration">{{ edu.start }} - {{ edu.end | default: "Present" }}</div>
+		{% if edu.description %}<p>{{ edu.description }}</p>{% endif %}
+	</div>
+{% endfor %}
 
 <hr class="minor" />
 <h2 id="Skills">Skills</h2>
 <div class="skills-container">
-    <div class="skill-category">
-        <h3>Technical Skills</h3>
+{% for group in resume.skills %}
+	<div class="skill-category">
+		<h3>{{ group.category }}</h3>
 		<hr class="minor" />
-        <ul>
-            <li>C/C++</li>
-			<li>Python</li>
-			<li>Algorithms</li>
-			<li>Statistical Data Analysis</li>
-			<li>Object-Oriented Programming</li>
-			<li>Design Patterns</li>
-			<li>Embedded Systems</li>
-			<li>Linux Kernel Development</li>
-			<li>Yocto/Bitbake</li>
-			<li>SQL/SQLite</li>
-			<li>U-Boot</li>
-			<li>Machine Learning</li>
-			<li>Kotlin</li>
-			<li>Java</li>
-        </ul>
-    </div>
-    <div class="skill-category">
-        <h3>Soft Skills</h3>
-		<hr class="minor" />
-        <ul>
-			<li>Communication</li>
-			<li>Leadership</li>
-            <li>Problem-Solving</li>
-            <li>Team Collaboration</li>
-			<li>Social Responsibility</li>
-            <li>Project Management</li>
-			<li>Flexibility</li>
-			<li>Crisis Management</li>
-        </ul>
-    </div>
-    <div class="skill-category">
-        <h3>Languages</h3>
-        <ul>
-            <li>English</li>
-            <li>Persian</li>
-            <li>Italian</li>
-        </ul>
-    </div>
+		<ul>
+			{% for item in group.items %}<li>{{ item }}</li>
+			{% endfor %}
+		</ul>
+	</div>
+{% endfor %}
 </div>
-
 
 </div>
 </section>
