@@ -5,6 +5,7 @@ layout: page
 title: My Resume
 image: assets/images/pic03.jpg
 nav-menu: true
+nav_order: 2
 ---
 
 <!-- Main -->

@@ -5,6 +5,7 @@ layout: page
 title: Other Activities
 image: assets/images/pic05.jpg
 nav-menu: true
+nav_order: 6
 ---
 
 <!-- Main -->

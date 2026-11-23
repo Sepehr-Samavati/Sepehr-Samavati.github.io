@@ -6,6 +6,7 @@ layout: page
 description:
 image: assets/images/pic02.jpg
 nav-menu: true
+nav_order: 4
 ---
 
 <!-- Main -->

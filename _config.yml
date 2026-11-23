@@ -38,6 +38,18 @@ markdown: kramdown
 plugins:
   - jekyll-redirect-from   # old page URLs (e.g. /A-About Me.html) redirect to the new ones
 
+# Settings applied to files automatically, so content files (the ones edited
+# through Pages CMS) only need to contain content: title, text, images.
+defaults:
+  - scope:
+      path: "about.md"
+    values:
+      layout: about
+      permalink: /about/
+      nav-menu: true
+      nav_order: 1
+      redirect_from: "/A-About Me.html"
+
 sass:
   style: compressed
 

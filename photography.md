@@ -5,6 +5,7 @@ layout: page
 title: Photography
 image: assets/images/gallery/pic01.jpg
 nav-menu: true
+nav_order: 3
 scripts:
   - assets/js/gallery.js
 ---
