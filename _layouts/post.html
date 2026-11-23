@@ -33,7 +33,7 @@
 		</ul>
 		{% endif %}
 		{% endif %}
-		{% if page.image %}<span class="image main{% if page.collection == "posts" %} post-cover{% endif %}"><img src="{{ page.image | relative_url }}" alt="{{ page.image_alt | default: page.title | escape }}" /></span>{% endif %}
+		{% assign cover = page.image | default: false %}{% if cover %}<span class="image main{% if page.collection == "posts" %} post-cover{% endif %}"><img src="{{ cover | relative_url }}" alt="{{ page.image_alt | default: page.title | escape }}" /></span>{% endif %}
 		{{ content }}
 		{% if page.collection == "posts" %}
 		<ul class="actions post-back">

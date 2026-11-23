@@ -23,11 +23,12 @@ nav_order: 2
 
 <h2 id="Experience">Work Experience</h2>
 {% for job in resume.experience %}
+	{% assign company_url = job.company_url | default: false %}{% assign summary = job.summary | default: false %}
 	<div class="job">
 		<h3>{{ job.title }}</h3>
-		{% if job.company_url %}<a href="{{ job.company_url }}" target="_blank" rel="noopener noreferrer" class="company">{{ job.company }}</a>{% else %}<span class="company">{{ job.company }}</span>{% endif %}
+		{% if company_url %}<a href="{{ company_url }}" target="_blank" rel="noopener noreferrer" class="company">{{ job.company }}</a>{% else %}<span class="company">{{ job.company }}</span>{% endif %}
 		<div class="duration">{{ job.start }} - {{ job.end | default: "Present" }}</div>
-		{% if job.summary %}<p>{{ job.summary }}</p>{% endif %}
+		{% if summary %}<p>{{ summary }}</p>{% endif %}
 		{% if job.bullets and job.bullets.size > 0 %}
 		<ul>
 			{% for bullet in job.bullets %}<li>{{ bullet }}</li>
@@ -41,11 +42,12 @@ nav_order: 2
 <hr class="minor" />
 <h2 id="Education">Education</h2>
 {% for edu in resume.education %}
+	{% assign school_url = edu.school_url | default: false %}{% assign edu_description = edu.description | default: false %}
 	<div class="education">
 		<h3>{{ edu.degree }}</h3>
-		{% if edu.school_url %}<a href="{{ edu.school_url }}" target="_blank" rel="noopener noreferrer" class="university">{{ edu.school }}</a>{% else %}<span class="university">{{ edu.school }}</span>{% endif %}
+		{% if school_url %}<a href="{{ school_url }}" target="_blank" rel="noopener noreferrer" class="university">{{ edu.school }}</a>{% else %}<span class="university">{{ edu.school }}</span>{% endif %}
 		<div class="duration">{{ edu.start }} - {{ edu.end | default: "Present" }}</div>
-		{% if edu.description %}<p>{{ edu.description }}</p>{% endif %}
+		{% if edu_description %}<p>{{ edu_description }}</p>{% endif %}
 	</div>
 {% endfor %}
 

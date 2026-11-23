@@ -7,12 +7,14 @@
 {% endcomment %}
 <section id="two" class="spotlights">
 {% for item in include.items %}
+	{% comment %} default: false turns empty values ("") from the CMS into false {% endcomment %}
+	{% assign link = item.link | default: false %}{% assign image = item.image | default: false %}{% assign height = item.image_height | default: false %}{% assign dota = item.dota_account_id | default: false %}
 	<section>
-		{% capture img_style %}{% if item.image_height %} style="height:{{ item.image_height }}px"{% endif %}{% endcapture %}
-		{% if item.image %}
-		{% if item.link %}<a href="{{ item.link }}" class="image"{{ img_style }} target="_blank" rel="noopener noreferrer">{% else %}<span class="image"{{ img_style }}>{% endif %}
-			<img src="{{ item.image | relative_url }}" alt="{{ item.image_alt | default: item.title | escape }}" data-position="center center" />
-		{% if item.link %}</a>{% else %}</span>{% endif %}
+		{% capture img_style %}{% if height %} style="height:{{ height }}px"{% endif %}{% endcapture %}
+		{% if image %}
+		{% if link %}<a href="{{ link }}" class="image"{{ img_style }} target="_blank" rel="noopener noreferrer">{% else %}<span class="image"{{ img_style }}>{% endif %}
+			<img src="{{ image | relative_url }}" alt="{{ item.image_alt | default: item.title | escape }}" data-position="center center" />
+		{% if link %}</a>{% else %}</span>{% endif %}
 		{% endif %}
 		<div class="content">
 			<div class="inner">
@@ -21,12 +23,12 @@
 				</header>
 				{% if include.show_date and item.date %}<p class="spotlight-date">{{ item.date | date: "%B %Y" }}</p>{% endif %}
 				{{ item.content | markdownify }}
-				{% if item.dota_account_id %}
-				<div class="dota-stats" data-account-id="{{ item.dota_account_id }}" hidden aria-live="polite"></div>
+				{% if dota %}
+				<div class="dota-stats" data-account-id="{{ dota }}" hidden aria-live="polite"></div>
 				{% endif %}
-				{% if item.link %}
+				{% if link %}
 				<ul class="actions">
-					<li><a href="{{ item.link }}" target="_blank" rel="noopener noreferrer" class="button">{{ item.link_label | default: "More" }}</a></li>
+					<li><a href="{{ link }}" target="_blank" rel="noopener noreferrer" class="button">{{ item.link_label | default: "More" }}</a></li>
 				</ul>
 				{% endif %}
 			</div>

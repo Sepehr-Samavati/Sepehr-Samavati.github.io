@@ -34,10 +34,11 @@ scripts:
 
 		<div class="post-list">
 		{% for post in site.posts %}
+			{% assign post_image = post.image | default: false %}
 			{% capture post_tags %}{% for tag in post.tags %}{{ tag | slugify }} {% endfor %}{% endcapture %}
 			<article class="post-card" data-tags="{{ post_tags | strip }}">
-				{% if post.image %}
-				<a href="{{ post.url | relative_url }}" class="post-card-image"><img src="{{ post.image | relative_url }}" alt="" loading="lazy" /></a>
+				{% if post_image %}
+				<a href="{{ post.url | relative_url }}" class="post-card-image"><img src="{{ post_image | relative_url }}" alt="" loading="lazy" /></a>
 				{% endif %}
 				<div class="post-card-body">
 					<h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
