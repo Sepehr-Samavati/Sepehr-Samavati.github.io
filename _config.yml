@@ -51,6 +51,12 @@ collections:
 # through Pages CMS) only need to contain content: title, text, images.
 defaults:
   - scope:
+      path: ""
+      type: posts      # blog posts in _posts/
+    values:
+      layout: post
+      permalink: /blog/:year/:month/:title/
+  - scope:
       path: "about.md"
     values:
       layout: about
