@@ -1,4 +1,6 @@
 ---
+permalink: /photography/
+redirect_from: "/C-Photography.html"
 layout: page
 title: Photography
 image: assets/images/pic01.jpg

@@ -1,4 +1,6 @@
 ---
+permalink: /hobbies/
+redirect_from: "/E-Interests and Hobbies.html"
 title: Interests and Hobbies
 layout: page
 description: 

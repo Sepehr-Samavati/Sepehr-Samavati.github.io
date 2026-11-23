@@ -1,4 +1,6 @@
 ---
+permalink: /activities/
+redirect_from: "/F-Other Activities.html"
 layout: page
 title: Other Activities
 image: assets/images/pic05.jpg

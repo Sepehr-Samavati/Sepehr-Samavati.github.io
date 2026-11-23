@@ -1,4 +1,6 @@
 ---
+permalink: /projects/
+redirect_from: "/D-Projects.html"
 title: Projects
 layout: page
 description:

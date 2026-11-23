@@ -35,6 +35,9 @@ socials:
 # build settings
 markdown: kramdown
 
+plugins:
+  - jekyll-redirect-from   # old page URLs (e.g. /A-About Me.html) redirect to the new ones
+
 sass:
   style: compressed
 

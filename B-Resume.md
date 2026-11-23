@@ -1,4 +1,6 @@
 ---
+permalink: /resume/
+redirect_from: "/B-Resume.html"
 layout: page
 title: My Resume
 image: assets/images/pic03.jpg
