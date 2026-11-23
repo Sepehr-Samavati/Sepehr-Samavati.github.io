@@ -20,8 +20,8 @@ nav-menu: true
 
 <h2 id="Experience">Work Experience</h2>
 	<div class="job">
-		<h2>Software Engineer</h2>
-		<a href="https://www.hcltech.com/" target="_blank" class="company">HCLTech</a>
+		<h3>Software Engineer</h3>
+		<a href="https://www.hcltech.com/" target="_blank" rel="noopener noreferrer" class="company">HCLTech</a>
 		<div class="duration">Jan 2024 - Dec 2024</div>
 		<ul>
 			<li>Collaborated on a team for an Ericsson project to develop and customize the Linux OS for modem boards, involving Linux kernel programming and driver modification.</li>
@@ -31,8 +31,8 @@ nav-menu: true
 		<div class="skills">Linux Kernel, Embedded Systems, BitBake, Yocto, Kernel Drivers, U-Boot</div>
 	</div>
 	<div class="job">
-		<h2>Software Developer</h2>
-		<a href="https://www.hcltech.com/" target="_blank" class="company">HCLTech</a>
+		<h3>Software Developer</h3>
+		<a href="https://www.hcltech.com/" target="_blank" rel="noopener noreferrer" class="company">HCLTech</a>
 		<div class="duration">Aug 2022 - Dec 2023</div>
 		<ul>
 			<li>Worked at HCL as part of a dedicated team focused on software development for Ericsson's modems and radios.</li>
@@ -43,8 +43,8 @@ nav-menu: true
 		<div class="skills">Design Patterns, C++, Object Oriented Design</div>
 	</div>
 	<div class="job">
-		<h2>Data Analysis Consultant</h2>
-		<a href="https://7sangteam.ir/" target="_blank" class="company">7SangTeam</a>
+		<h3>Data Analysis Consultant</h3>
+		<a href="https://7sangteam.ir/" target="_blank" rel="noopener noreferrer" class="company">7SangTeam</a>
 		<div class="duration">Jan 2022 - Oct 2022</div>
 		<p>Implemented statistical methods and software to analyze employee engagement.</p>
 		<div class="skills">Python (Programming Language), SciPy, Seaborn, Statistical Data Analysis</div>
@@ -53,13 +53,13 @@ nav-menu: true
 <hr class="minor" />
 <h2 id="Education">Education</h2>
 	<div class="education">
-		<h2>Master’s Degree, Automation and Control Engineering</h2>
-		<a href="https://www.polimi.it/" target="_blank" class="university">Politecnico di Milano</a>
+		<h3>Master’s Degree, Automation and Control Engineering</h3>
+		<a href="https://www.polimi.it/" target="_blank" rel="noopener noreferrer" class="university">Politecnico di Milano</a>
 		<div class="duration">2019 - 2022</div>
     </div>
 	<div class="education">
-		<h2>Bachelor’s Degree, Electrical Engineering</h2>
-		<a href="https://ut.ac.ir" target="_blank" class="university">University of Tehran</a>
+		<h3>Bachelor’s Degree, Electrical Engineering</h3>
+		<a href="https://ut.ac.ir" target="_blank" rel="noopener noreferrer" class="university">University of Tehran</a>
 		<div class="duration">2013 - 2017</div>
     </div>
 

@@ -19,7 +19,7 @@ nav-menu: true
 
 <div class="row">
 	<div class="4u 12u$(medium)">
-		<span class="image fit"><img src="{% link assets/images/my_pic.jpg %}" alt="" /></span>
+		<span class="image fit"><img src="{% link assets/images/my_pic.jpg %}" alt="Portrait of Sepehr Samavati" /></span>
 	</div>
 	<div class="8u$ 12u$(medium)">
 		<p>I’m Sepehr Samavati, a person of many things. I got my bachelor’s degree in Iran from the University of Tehran and my master’s from Politecnico di Milano in Italy. I’ve been working as a software engineer for the past three years, contributing to projects at 7SangTeam, HCLTech, and Ericsson.</p>
