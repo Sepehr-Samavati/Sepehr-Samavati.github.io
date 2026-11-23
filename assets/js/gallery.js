@@ -5,7 +5,7 @@
 (function () {
 	'use strict';
 
-	var items = Array.prototype.slice.call(document.querySelectorAll('.gallery-item'));
+	var items = Array.prototype.slice.call(document.querySelectorAll('.gallery-link'));
 	if (!items.length) return;
 
 	var box = document.createElement('div');
@@ -33,13 +33,14 @@
 		img.src = item.getAttribute('href');
 		img.alt = thumb ? thumb.alt : '';
 		caption.textContent = item.getAttribute('data-caption') || '';
-		var link = item.getAttribute('data-link');
+		var link = item.getAttribute('data-instagram');
 		if (link) {
 			var a = document.createElement('a');
 			a.href = link;
 			a.target = '_blank';
 			a.rel = 'noopener noreferrer';
-			a.textContent = 'View post';
+			a.className = 'icon fa-instagram';
+			a.textContent = ' View on Instagram';
 			caption.appendChild(a);
 		}
 		// Preload neighbours so next/previous feel instant.

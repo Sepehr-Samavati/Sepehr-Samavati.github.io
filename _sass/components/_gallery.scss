@@ -15,42 +15,43 @@
 	}
 
 	.gallery-item {
-		border-bottom: 0;
 		break-inside: avoid;
-		cursor: zoom-in;
-		display: block;
-		margin: 0 0 1em 0;
-		overflow: hidden;
-		position: relative;
+		margin: 0 0 1.25em 0;
 
-		img {
+		.gallery-link {
+			border-bottom: 0;
+			cursor: zoom-in;
 			display: block;
-			height: auto;
-			transition: transform 0.4s ease, opacity 0.4s ease;
-			width: 100%;
-		}
+			overflow: hidden;
 
-		.gallery-caption {
-			background: linear-gradient(transparent, rgba(0, 0, 0, 0.75));
-			bottom: 0;
-			color: #fff;
-			font-size: 0.8em;
-			left: 0;
-			opacity: 0;
-			padding: 2em 0.75em 0.5em 0.75em;
-			position: absolute;
-			right: 0;
-			transition: opacity 0.3s ease;
-		}
-
-		&:hover, &:focus-visible {
 			img {
-				opacity: 0.85;
-				transform: scale(1.03);
+				display: block;
+				height: auto;
+				transition: transform 0.4s ease, opacity 0.4s ease;
+				width: 100%;
 			}
 
-			.gallery-caption {
-				opacity: 1;
+			&:hover, &:focus-visible {
+				img {
+					opacity: 0.85;
+					transform: scale(1.03);
+				}
+			}
+		}
+
+		figcaption {
+			align-items: baseline;
+			color: _palette(fg-middle);
+			display: flex;
+			font-size: 0.85em;
+			gap: 0.75em;
+			justify-content: space-between;
+			line-height: 1.5;
+			padding-top: 0.5em;
+
+			.icon {
+				flex-shrink: 0;
+				font-size: 1.2em;
 			}
 		}
 	}
@@ -87,7 +88,8 @@
 
 			a {
 				color: _palette(accent1);
-				margin-left: 0.5em;
+				margin-left: 0.75em;
+				white-space: nowrap;
 			}
 		}
 

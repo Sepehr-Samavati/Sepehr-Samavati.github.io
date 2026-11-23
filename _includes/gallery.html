@@ -1,19 +1,31 @@
 {% comment %}
-  Photo grid fed by _data/gallery.yml. Each tile links to the full-size image,
+  Photo grid fed by _data/gallery.yml. Each photo links to the full-size image,
   so it still works without JavaScript; assets/js/gallery.js turns the links
-  into a full-screen viewer.
+  into a full-screen viewer. Thumbnails are read from gallery/thumbs/ when present.
 {% endcomment %}
 <div class="gallery">
 	{% for photo in site.data.gallery %}
-		{% assign full = "/assets/images/gallery/" | append: photo.image %}
-		{% assign thumb = "/assets/images/gallery/thumbs/" | append: photo.image %}
+		{% assign full = photo.image %}
+		{% unless full contains "/" %}{% assign full = "/assets/images/gallery/" | append: full %}{% endunless %}
+		{% assign first = full | slice: 0 %}{% if first != "/" %}{% assign full = "/" | append: full %}{% endif %}
+		{% assign name = full | split: "/" | last %}
+		{% assign thumb = "/assets/images/gallery/thumbs/" | append: name %}
 		{% assign thumb_exists = site.static_files | where: "path", thumb | size %}
 		{% if thumb_exists == 0 %}{% assign thumb = full %}{% endif %}
-		<a class="gallery-item" href="{{ full | relative_url }}"
-		   data-caption="{{ photo.caption | escape }}"
-		   {% if photo.link %}data-link="{{ photo.link | escape }}"{% endif %}>
-			<img src="{{ thumb | relative_url }}" alt="{{ photo.alt | default: photo.caption | escape }}" loading="lazy" />
-			{% if photo.caption %}<span class="gallery-caption">{{ photo.caption }}</span>{% endif %}
-		</a>
+		<figure class="gallery-item">
+			<a class="gallery-link" href="{{ full | relative_url }}"
+			   data-caption="{{ photo.caption | escape }}"
+			   {% if photo.instagram and photo.instagram != "" %}data-instagram="{{ photo.instagram | escape }}"{% endif %}>
+				<img src="{{ thumb | relative_url }}" alt="{{ photo.alt | default: photo.caption | escape }}" loading="lazy" />
+			</a>
+			{% if photo.caption and photo.caption != "" or photo.instagram and photo.instagram != "" %}
+			<figcaption>
+				<span>{{ photo.caption }}</span>
+				{% if photo.instagram and photo.instagram != "" %}
+				<a href="{{ photo.instagram }}" class="icon fa-instagram" target="_blank" rel="noopener noreferrer" title="View on Instagram"><span class="label">View on Instagram</span></a>
+				{% endif %}
+			</figcaption>
+			{% endif %}
+		</figure>
 	{% endfor %}
 </div>

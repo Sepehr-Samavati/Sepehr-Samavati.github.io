@@ -1,27 +1,30 @@
-# Photos on the Photography page, shown in this order.
+# Photos on the Photography page, shown in this order (top = first).
+# Edit through Pages CMS, or by hand:
 #
-# To add a photo:
-#   1. Put the file in assets/images/gallery/
-#   2. Run:  make images     (resizes it and creates its thumbnail)
-#   3. Add an entry below.
+#   image:     path of the photo, e.g. /assets/images/gallery/my-photo.jpg   (required)
+#   caption:   text shown under the photo and in the full-screen view       (required)
+#   instagram: link to the same photo's Instagram post                        (optional)
+#   alt:       short description for screen readers; caption is used if empty (optional)
 #
-#   image:   file name inside assets/images/gallery/          (required)
-#   alt:     short description for screen readers / search    (recommended)
-#   caption: text shown under the photo in full-screen view   (optional)
-#   link:    e.g. the Instagram post URL, shown as a link     (optional)
+# New photos: put them in assets/images/gallery/ and run `make images`
+# (when uploading through Pages CMS this happens automatically on GitHub).
 
-- image: pic01.jpg
+- image: /assets/images/gallery/pic01.jpg
+  caption: ""
+  instagram: ""
   alt: Church bell tower silhouetted against an orange sunset
-  caption:
 
-- image: pic07.jpg
+- image: /assets/images/gallery/pic07.jpg
+  caption: ""
+  instagram: ""
   alt: Lakeside town at night with lights reflecting on the water
-  caption:
 
-- image: pic08.jpg
+- image: /assets/images/gallery/pic08.jpg
+  caption: ""
+  instagram: ""
   alt: Winged lion statue on a column against a deep blue sky, with a gull overhead
-  caption:
 
-- image: pic09.jpg
+- image: /assets/images/gallery/pic09.jpg
+  caption: ""
+  instagram: ""
   alt: Gull perched on a street lamp under a grey, cloudy sky
-  caption:
