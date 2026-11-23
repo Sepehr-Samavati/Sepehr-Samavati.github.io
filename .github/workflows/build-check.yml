@@ -1,0 +1,20 @@
+# Builds the site on every push and pull request, so a broken build is caught
+# before it reaches master. Deployment itself is done by GitHub Pages
+# (Settings → Pages → "Deploy from a branch": master / root), not by this file.
+name: Build check
+
+on:
+  push:
+  pull_request:
+    branches: [master]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.3"
+          bundler-cache: true
+      - run: bundle exec jekyll build --strict_front_matter
