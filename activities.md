@@ -9,7 +9,7 @@ nav_order: 6
 ---
 
 <!-- Main -->
-<div id="main" class="alt">
+<div id="main">
 
 <!-- One -->
 <section id="one">
@@ -17,11 +17,12 @@ nav_order: 6
 		<header class="major">
 			<h1>Other Activities</h1>
 		</header>
-
-
-
-
-</div>
+		{% if site.activities.size == 0 %}<p>Coming soon.</p>{% endif %}
+	</div>
 </section>
+
+<!-- Two: one block per file in _activities/ (newest first) -->
+{% assign items = site.activities | sort: "date" | reverse %}
+{% include spotlights.html items=items show_date=true %}
 
 </div>

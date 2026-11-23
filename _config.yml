@@ -38,6 +38,15 @@ markdown: kramdown
 plugins:
   - jekyll-redirect-from   # old page URLs (e.g. /A-About Me.html) redirect to the new ones
 
+# Content collections: one markdown file per item, listed on their page.
+collections:
+  projects:            # _projects/   -> Projects page
+    output: false
+  hobbies:             # _hobbies/    -> Interests and Hobbies page
+    output: false
+  activities:          # _activities/ -> Other Activities page
+    output: false
+
 # Settings applied to files automatically, so content files (the ones edited
 # through Pages CMS) only need to contain content: title, text, images.
 defaults:
