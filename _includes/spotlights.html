@@ -2,7 +2,8 @@
   Alternating image/text blocks for a list of collection items
   (projects, hobbies, activities). Usage:
     {% include spotlights.html items=sorted_items show_date=true %}
-  Item fields: title, image, image_alt, image_height, link, link_label, date, body (markdown).
+  Item fields: title, image, image_alt, image_height, link, link_label, date,
+  dota_account_id (shows live Dota 2 stats), body (markdown).
 {% endcomment %}
 <section id="two" class="spotlights">
 {% for item in include.items %}
@@ -20,6 +21,9 @@
 				</header>
 				{% if include.show_date and item.date %}<p class="spotlight-date">{{ item.date | date: "%B %Y" }}</p>{% endif %}
 				{{ item.content | markdownify }}
+				{% if item.dota_account_id %}
+				<div class="dota-stats" data-account-id="{{ item.dota_account_id }}" hidden aria-live="polite"></div>
+				{% endif %}
 				{% if item.link %}
 				<ul class="actions">
 					<li><a href="{{ item.link }}" target="_blank" rel="noopener noreferrer" class="button">{{ item.link_label | default: "More" }}</a></li>

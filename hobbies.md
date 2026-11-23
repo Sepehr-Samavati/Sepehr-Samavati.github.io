@@ -7,6 +7,8 @@ description:
 image: assets/images/pic04.jpg
 nav-menu: true
 nav_order: 5
+scripts:
+  - assets/js/dota.js
 ---
 
 <!-- Main -->
