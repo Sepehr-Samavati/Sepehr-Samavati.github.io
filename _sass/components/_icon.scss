@@ -11,6 +11,11 @@
 		border-bottom: none;
 		position: relative;
 
+		// Font Awesome 6 sets each icon's glyph in the --fa variable (e.g. .fa-github).
+		&:before {
+			content: var(--fa);
+		}
+
 		> .label {
 			display: none;
 		}

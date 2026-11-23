@@ -1,4 +1,5 @@
-/// Makes an element's :before pseudoelement a FontAwesome icon.
+/// Makes an element's :before pseudoelement a Font Awesome icon
+/// ("FontAwesome" family is defined by assets/vendor/fontawesome/css/v4-font-face.min.css).
 /// @param {string} $content Optional content value to use.
 /// @param {string} $where Optional pseudoelement to target (before or after).
 @mixin icon($content: false, $where: before) {
