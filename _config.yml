@@ -41,9 +41,19 @@ plugins:
 sass:
   style: compressed
 
+# Files that are part of the repository but must not be published.
+# (On Jekyll 3 this list replaces Jekyll's defaults, so they are listed here.)
 exclude:
 - "*.gemspec"
 - LICENSE.md
 - CONTRIBUTING.md
 - README.md
 - scripts/
+- Makefile
+- Gemfile
+- Gemfile.lock
+- vendor/
+- .bundle/
+- .jekyll-cache/
+- .sass-cache/
+- node_modules/
