@@ -2,7 +2,7 @@
 layout: home
 title: Home
 landing-title: 'Hi, my name is Sepehr'
-description: 'what is this?'
+description: 'Personal website of Sepehr Samavati: software engineer and photographer based in Milan.'
 image: assets/images/my_pic.jpg
 author: null
 show_tile: false
