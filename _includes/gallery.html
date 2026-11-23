@@ -1,0 +1,19 @@
+{% comment %}
+  Photo grid fed by _data/gallery.yml. Each tile links to the full-size image,
+  so it still works without JavaScript; assets/js/gallery.js turns the links
+  into a full-screen viewer.
+{% endcomment %}
+<div class="gallery">
+	{% for photo in site.data.gallery %}
+		{% assign full = "/assets/images/gallery/" | append: photo.image %}
+		{% assign thumb = "/assets/images/gallery/thumbs/" | append: photo.image %}
+		{% assign thumb_exists = site.static_files | where: "path", thumb | size %}
+		{% if thumb_exists == 0 %}{% assign thumb = full %}{% endif %}
+		<a class="gallery-item" href="{{ full | relative_url }}"
+		   data-caption="{{ photo.caption | escape }}"
+		   {% if photo.link %}data-link="{{ photo.link | escape }}"{% endif %}>
+			<img src="{{ thumb | relative_url }}" alt="{{ photo.alt | default: photo.caption | escape }}" loading="lazy" />
+			{% if photo.caption %}<span class="gallery-caption">{{ photo.caption }}</span>{% endif %}
+		</a>
+	{% endfor %}
+</div>

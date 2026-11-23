@@ -1,0 +1,27 @@
+# Photos on the Photography page, shown in this order.
+#
+# To add a photo:
+#   1. Put the file in assets/images/gallery/
+#   2. Run:  make images     (resizes it and creates its thumbnail)
+#   3. Add an entry below.
+#
+#   image:   file name inside assets/images/gallery/          (required)
+#   alt:     short description for screen readers / search    (recommended)
+#   caption: text shown under the photo in full-screen view   (optional)
+#   link:    e.g. the Instagram post URL, shown as a link     (optional)
+
+- image: pic01.jpg
+  alt: Church bell tower silhouetted against an orange sunset
+  caption:
+
+- image: pic07.jpg
+  alt: Lakeside town at night with lights reflecting on the water
+  caption:
+
+- image: pic08.jpg
+  alt: Winged lion statue on a column against a deep blue sky, with a gull overhead
+  caption:
+
+- image: pic09.jpg
+  alt: Gull perched on a street lamp under a grey, cloudy sky
+  caption:

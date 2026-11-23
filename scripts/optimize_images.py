@@ -6,6 +6,9 @@ For every JPEG/PNG under assets/images/:
   * camera metadata (EXIF: camera model, Lightroom info, possibly GPS) is removed,
   * JPEGs are saved as progressive JPEG at QUALITY.
 
+For every photo in assets/images/gallery/ a small thumbnail is also written to
+assets/images/gallery/thumbs/ (used by the Photography page grid).
+
 Images that are already small enough and carry no metadata are left untouched,
 so running the script again does not re-compress (and degrade) them.
 
@@ -23,6 +26,10 @@ IMAGES = ROOT / "assets" / "images"
 MAX_EDGE = 2000
 QUALITY = 82
 SKIP_DIRS = {"thumbs"}  # generated thumbnails
+GALLERY = IMAGES / "gallery"
+THUMBS = GALLERY / "thumbs"
+THUMB_EDGE = 800
+THUMB_QUALITY = 78
 
 
 def optimize(path: Path, dry_run: bool) -> None:
@@ -48,6 +55,31 @@ def optimize(path: Path, dry_run: bool) -> None:
     print(f"optimized {path.relative_to(ROOT)}  {before/1e6:.2f} MB -> {after/1e6:.2f} MB")
 
 
+def make_thumb(path: Path, dry_run: bool) -> None:
+    thumb = THUMBS / path.name
+    if thumb.exists() and thumb.stat().st_mtime >= path.stat().st_mtime:
+        return
+    if dry_run:
+        print(f"would create {thumb.relative_to(ROOT)}")
+        return
+    THUMBS.mkdir(parents=True, exist_ok=True)
+    with Image.open(path) as img:
+        out = ImageOps.exif_transpose(img).convert("RGB")
+        out.thumbnail((THUMB_EDGE, THUMB_EDGE), Image.LANCZOS)
+        out.save(thumb, "JPEG", quality=THUMB_QUALITY, optimize=True, progressive=True)
+    print(f"thumbnail {thumb.relative_to(ROOT)}")
+
+
+def remove_orphan_thumbs(dry_run: bool) -> None:
+    if not THUMBS.exists():
+        return
+    for thumb in THUMBS.iterdir():
+        if not (GALLERY / thumb.name).exists():
+            print(f"{'would remove' if dry_run else 'removed'} orphan {thumb.relative_to(ROOT)}")
+            if not dry_run:
+                thumb.unlink()
+
+
 def main() -> None:
     dry_run = "--dry-run" in sys.argv
     for path in sorted(IMAGES.rglob("*")):
@@ -56,6 +88,9 @@ def main() -> None:
         if SKIP_DIRS & set(path.relative_to(IMAGES).parts):
             continue
         optimize(path, dry_run)
+        if path.parent == GALLERY:
+            make_thumb(path, dry_run)
+    remove_orphan_thumbs(dry_run)
 
 
 if __name__ == "__main__":

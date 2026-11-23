@@ -1,0 +1,129 @@
+/* Gallery (Photography page) */
+
+	.gallery {
+		column-count: 3;
+		column-gap: 1em;
+		margin: 0 0 _size(element-margin) 0;
+
+		@include breakpoint(medium) {
+			column-count: 2;
+		}
+
+		@include breakpoint(xsmall) {
+			column-count: 1;
+		}
+	}
+
+	.gallery-item {
+		border-bottom: 0;
+		break-inside: avoid;
+		cursor: zoom-in;
+		display: block;
+		margin: 0 0 1em 0;
+		overflow: hidden;
+		position: relative;
+
+		img {
+			display: block;
+			height: auto;
+			transition: transform 0.4s ease, opacity 0.4s ease;
+			width: 100%;
+		}
+
+		.gallery-caption {
+			background: linear-gradient(transparent, rgba(0, 0, 0, 0.75));
+			bottom: 0;
+			color: #fff;
+			font-size: 0.8em;
+			left: 0;
+			opacity: 0;
+			padding: 2em 0.75em 0.5em 0.75em;
+			position: absolute;
+			right: 0;
+			transition: opacity 0.3s ease;
+		}
+
+		&:hover, &:focus-visible {
+			img {
+				opacity: 0.85;
+				transform: scale(1.03);
+			}
+
+			.gallery-caption {
+				opacity: 1;
+			}
+		}
+	}
+
+/* Lightbox (full-screen viewer) */
+
+	.lightbox {
+		align-items: center;
+		background: rgba(0, 0, 0, 0.92);
+		display: none;
+		flex-direction: column;
+		inset: 0;
+		justify-content: center;
+		padding: 3em 4em;
+		position: fixed;
+		z-index: 20000;
+
+		&.is-open {
+			display: flex;
+		}
+
+		img {
+			max-height: calc(100vh - 9em);
+			max-width: 100%;
+			object-fit: contain;
+		}
+
+		.lightbox-caption {
+			color: #fff;
+			margin-top: 1em;
+			max-width: 60em;
+			min-height: 1.5em;
+			text-align: center;
+
+			a {
+				color: _palette(accent1);
+				margin-left: 0.5em;
+			}
+		}
+
+		button {
+			background: transparent;
+			border: 0;
+			box-shadow: none;
+			color: #fff;
+			cursor: pointer;
+			font-size: 2.5em;
+			height: auto;
+			line-height: 1;
+			padding: 0.25em 0.5em;
+			position: absolute;
+
+			&:hover, &:focus-visible {
+				color: _palette(accent1);
+				background: transparent;
+			}
+		}
+
+		.lightbox-close { right: 0.25em; top: 0.25em; }
+		.lightbox-prev  { left: 0.1em; top: 50%; transform: translateY(-50%); }
+		.lightbox-next  { right: 0.1em; top: 50%; transform: translateY(-50%); }
+
+		@include breakpoint(small) {
+			padding: 3em 0.5em;
+
+			.lightbox-prev, .lightbox-next {
+				top: auto;
+				bottom: 0.25em;
+				transform: none;
+			}
+		}
+	}
+
+	body.lightbox-open {
+		overflow: hidden;
+	}
