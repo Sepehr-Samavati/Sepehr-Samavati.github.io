@@ -1,0 +1,351 @@
+# Pages CMS configuration (https://pagescms.org/docs/)
+# Open https://app.pagescms.org, sign in with GitHub and pick this repository.
+# Every "Save" in the editor is a commit; GitHub Pages then rebuilds the site.
+#
+# Only content lives in the edited files. Layout, URLs and menu settings are in
+# _config.yml (defaults), so nothing structural can be lost when saving here.
+
+media:
+  - name: images
+    label: Images
+    input: assets/images
+    output: /assets/images
+    extensions: [jpg, jpeg, png, webp]
+    rename: safe
+  - name: gallery
+    label: Photography
+    input: assets/images/gallery
+    output: /assets/images/gallery
+    extensions: [jpg, jpeg, png, webp]
+    rename: safe
+
+content:
+  # ---------------------------------------------------------------- Blog
+  - name: posts
+    label: Blog posts
+    type: collection
+    path: _posts
+    exclude: [.gitkeep]
+    filename: "{year}-{month}-{day}-{primary}.md"
+    format: yaml-frontmatter
+    view:
+      fields: [title, date, tags]
+      primary: title
+      sort: [date, title]
+      default:
+        sort: date
+        order: desc
+    fields:
+      - name: title
+        label: Title
+        type: string
+        required: true
+      - name: date
+        label: Date
+        type: date
+        options:
+          format: yyyy-MM-dd
+      - name: description
+        label: Short description
+        description: Shown in the post list. If empty, the first paragraph is used.
+        type: text
+      - name: tags
+        label: Tags
+        description: e.g. Embedded, Photography. Readers can filter posts by tag.
+        type: string
+        list: true
+      - name: image
+        label: Cover image (optional)
+        type: image
+        options:
+          media: images
+      - name: image_alt
+        label: Cover image description (for screen readers)
+        type: string
+      - name: body
+        label: Text
+        type: rich-text
+        options:
+          format: markdown
+          media: images
+
+  # ---------------------------------------------------------------- Photography
+  - name: gallery
+    label: Photography
+    type: file
+    path: _data/gallery.yml
+    format: yaml
+    list: true
+    fields:
+      - name: image
+        label: Photo
+        type: image
+        required: true
+        options:
+          media: gallery
+      - name: caption
+        label: Caption
+        type: string
+        required: true
+      - name: instagram
+        label: Instagram post link
+        description: e.g. https://www.instagram.com/p/XXXXXXXX/
+        type: string
+      - name: alt
+        label: Description for screen readers (optional, caption is used if empty)
+        type: string
+
+  # ---------------------------------------------------------------- Resume
+  - name: resume
+    label: Resume
+    type: file
+    path: _data/resume.yml
+    format: yaml
+    fields:
+      - name: experience
+        label: Work experience (newest first)
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{title} – {company}"
+        fields:
+          - name: title
+            label: Job title
+            type: string
+            required: true
+          - name: company
+            label: Company
+            type: string
+            required: true
+          - name: company_url
+            label: Company website
+            type: string
+          - name: start
+            label: Start (e.g. Jan 2024)
+            type: string
+          - name: end
+            label: End (empty = Present)
+            type: string
+          - name: summary
+            label: Summary paragraph (optional)
+            type: text
+          - name: bullets
+            label: Bullet points
+            type: text
+            list: true
+          - name: skills
+            label: Skills used
+            type: string
+            list: true
+      - name: education
+        label: Education (newest first)
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{degree}"
+        fields:
+          - name: degree
+            label: Degree
+            type: string
+            required: true
+          - name: school
+            label: School
+            type: string
+          - name: school_url
+            label: School website
+            type: string
+          - name: start
+            label: Start year
+            type: string
+          - name: end
+            label: End year (empty = Present)
+            type: string
+          - name: description
+            label: Description (optional)
+            type: text
+      - name: skills
+        label: Skill groups
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{category}"
+        fields:
+          - name: category
+            label: Group name (e.g. Technical Skills)
+            type: string
+            required: true
+          - name: items
+            label: Skills
+            type: string
+            list: true
+
+  # ---------------------------------------------------------------- Projects
+  - name: projects
+    label: Projects
+    type: collection
+    path: _projects
+    exclude: [.gitkeep]
+    filename: "{primary}.md"
+    format: yaml-frontmatter
+    view:
+      fields: [title, order]
+      primary: title
+      sort: [order, title]
+      default:
+        sort: order
+        order: asc
+    fields:
+      - name: title
+        label: Title
+        type: string
+        required: true
+      - name: image
+        label: Image
+        type: image
+        options:
+          media: images
+      - name: image_alt
+        label: Image description (for screen readers)
+        type: string
+      - name: image_height
+        label: Image height in pixels (optional, e.g. 600 for tall screenshots)
+        type: number
+      - name: link
+        label: Link (optional, adds a button)
+        type: string
+      - name: link_label
+        label: Button text (default "More")
+        type: string
+      - name: order
+        label: Position (1 = first)
+        type: number
+      - name: body
+        label: Text
+        type: rich-text
+        options:
+          format: markdown
+          media: images
+
+  # ---------------------------------------------------------------- Hobbies
+  - name: hobbies
+    label: Interests and Hobbies
+    type: collection
+    path: _hobbies
+    exclude: [.gitkeep]
+    filename: "{primary}.md"
+    format: yaml-frontmatter
+    view:
+      fields: [title, order]
+      primary: title
+      sort: [order, title]
+      default:
+        sort: order
+        order: asc
+    fields:
+      - name: title
+        label: Title
+        type: string
+        required: true
+      - name: image
+        label: Image
+        type: image
+        options:
+          media: images
+      - name: image_alt
+        label: Image description (for screen readers)
+        type: string
+      - name: image_height
+        label: Image height in pixels (optional)
+        type: number
+      - name: link
+        label: Link (optional, adds a button)
+        type: string
+      - name: link_label
+        label: Button text (default "More")
+        type: string
+      - name: order
+        label: Position (1 = first)
+        type: number
+      - name: dota_account_id
+        label: Dota 2 account ID (optional, shows live rank and top heroes)
+        type: string
+      - name: body
+        label: Text
+        type: rich-text
+        options:
+          format: markdown
+          media: images
+
+  # ---------------------------------------------------------------- Activities
+  - name: activities
+    label: Other Activities
+    type: collection
+    path: _activities
+    exclude: [.gitkeep]
+    filename: "{primary}.md"
+    format: yaml-frontmatter
+    view:
+      fields: [title, date]
+      primary: title
+      sort: [date, title]
+      default:
+        sort: date
+        order: desc
+    fields:
+      - name: title
+        label: Title
+        type: string
+        required: true
+      - name: date
+        label: Date (newest shown first)
+        type: date
+        options:
+          format: yyyy-MM-dd
+      - name: image
+        label: Image
+        type: image
+        options:
+          media: images
+      - name: image_alt
+        label: Image description (for screen readers)
+        type: string
+      - name: image_height
+        label: Image height in pixels (optional)
+        type: number
+      - name: link
+        label: Link (optional, adds a button)
+        type: string
+      - name: link_label
+        label: Button text (default "More")
+        type: string
+      - name: body
+        label: Text
+        type: rich-text
+        options:
+          format: markdown
+          media: images
+
+  # ---------------------------------------------------------------- About
+  - name: about
+    label: About Me
+    type: file
+    path: about.md
+    format: yaml-frontmatter
+    fields:
+      - name: title
+        label: Page title
+        type: string
+        required: true
+      - name: image
+        label: Portrait
+        type: image
+        options:
+          media: images
+      - name: body
+        label: Text
+        type: rich-text
+        options:
+          format: markdown
