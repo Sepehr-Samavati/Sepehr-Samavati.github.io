@@ -1,66 +1,88 @@
-# Forty - Jekyll Theme
+# sepehrsamavati.com
 
-A Jekyll version of the "Forty" theme by [HTML5 UP](https://html5up.net/).  
+Source of my personal website: [sepehrsamavati.com](https://sepehrsamavati.com).
 
-![Forty Theme](assets/images/forty.jpg "Forty Theme")
+A [Jekyll](https://jekyllrb.com/) site, deployed automatically by **GitHub Pages**
+whenever `master` is pushed (Settings → Pages → *Deploy from a branch*: `master` / root).
 
-# How to Use
+## Run it locally
 
-For those unfamiliar with how Jekyll works, check out [jekyllrb.com](https://jekyllrb.com/) for all the details, 
-or read up on just the basics of [front matter](https://jekyllrb.com/docs/frontmatter/), [writing posts](https://jekyllrb.com/docs/posts/), 
-and [creating pages](https://jekyllrb.com/docs/pages/).
+One-time setup (Ubuntu/Debian):
 
-Simply fork this repository and start editing the `_config.yml` file!
-
-> NOTE: GitHub Actions is required to deploy to GitHub Pages because GitHub [refuses to update their version of Jekyll](https://github.com/github/pages-gem/issues/651).
-
-# Added Features
-
-* **[Formspree.io](https://formspree.io/) contact form integration** - just add your email to the `_config.yml` and it works!
-* Use `_config.yml` to **set whether the homepage tiles should pull pages or posts**, as well as how many to display.
-* Add your **social profiles** easily in `_config.yml`. Only social profiles buttons you enter in `config.yml` show up on the site footer!
-* Set **featured images** in front matter.
-
-# Credits
-
-Original README from HTML5 UP:
-
-```
-Forty by HTML5 UP
-html5up.net | @ajlkn
-Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
-
-
-This is Forty, my latest and greatest addition to HTML5 UP and, per its incredibly
-creative name, my 40th (woohoo)! It's built around a grid of "image tiles" that are
-set up to smoothly transition to secondary landing pages (for which a separate page
-template is provided), and includes a number of neat effects (check out the menu!),
-extra features, and all the usual stuff you'd expect. Hope you dig it!
-
-Demo images* courtesy of Unsplash, a radtastic collection of CC0 (public domain) images
-you can use for pretty much whatever.
-
-(* = not included)
-
-AJ
-aj@lkn.io | @ajlkn
-
-
-Credits:
-
-	Demo Images:
-		Unsplash (unsplash.com)
-
-	Icons:
-		Font Awesome (fortawesome.github.com/Font-Awesome)
-
-	Other:
-		jQuery (jquery.com)
-		html5shiv.js (@afarkas @jdalton @jon_neal @rem)
-		background-size polyfill (github.com/louisremi)
-		Misc. Sass functions (@HugoGiraudel)
-		Respond.js (j.mp/respondjs)
-		Skel (skel.io)
+```sh
+sudo apt install ruby-dev libssl-dev build-essential python3-pil
+make setup        # installs the gems into vendor/bundle (same versions GitHub Pages uses)
 ```
 
-Repository [Jekyll logo](https://github.com/jekyll/brand) icon licensed under a [Creative Commons Attribution 4.0 International License](http://choosealicense.com/licenses/cc-by-4.0/).
+Then, whenever you want to preview:
+
+```sh
+make serve        # http://localhost:4000, the browser reloads when you save a file
+```
+
+| Command | What it does |
+|---------|--------------|
+| `make serve` | Local preview with live reload |
+| `make serve HOST=0.0.0.0` | Same, reachable from your phone on the same Wi-Fi (`http://<your-pc-ip>:4000`) |
+| `make images` | Resize/strip metadata of new images, create gallery thumbnails |
+| `make build` | Build the production site into `_site/` |
+| `make doctor` | Check that everything needed is installed |
+| `make clean` | Delete build output and caches |
+
+A build check runs on GitHub for every push and pull request
+(`.github/workflows/build-check.yml`), so a broken build shows up before it is merged.
+
+## Adding content
+
+### A photo to the Photography page
+1. Copy the photo into `assets/images/gallery/`.
+2. Run `make images` (resizes it to max 2000 px, removes camera metadata, makes a thumbnail).
+3. Add an entry to `_data/gallery.yml`:
+   ```yaml
+   - image: my-photo.jpg
+     alt: Short description of the photo
+     caption: Optional caption shown in the full-screen view
+     link: https://www.instagram.com/p/...   # optional
+   ```
+
+### A new page
+Create a `.md` file in the root folder, e.g. `G-Talks.md`:
+
+```yaml
+---
+title: Talks
+permalink: /talks/
+layout: page
+image: assets/images/some-image.jpg   # used for the homepage tile
+nav-menu: true                        # show in the menu
+---
+```
+
+Pages appear in the menu and as homepage tiles in file-name order (hence the `A-`, `B-`… prefixes).
+Ready-made layouts and components to copy from are in [`_templates/`](_templates/).
+
+### Other images
+Put them in `assets/images/` and run `make images`.
+
+## Project structure
+
+| Path | Contents |
+|------|----------|
+| `A-…md` … `F-…md` | The site's pages |
+| `_config.yml` | Site title, email, social links, homepage tile settings |
+| `_data/gallery.yml` | Photos shown on the Photography page |
+| `_layouts/`, `_includes/` | Page templates (header, footer, gallery, …) |
+| `_sass/`, `assets/css/main.scss` | Styles (`_sass/components/_jobs.scss` = resume, `_gallery.scss` = gallery) |
+| `assets/js/` | Theme scripts and `gallery.js` (full-screen photo viewer) |
+| `assets/vendor/fontawesome/` | Font Awesome 6 icons |
+| `_templates/` | Theme demo pages, not published |
+| `scripts/optimize_images.py` | Image optimizer used by `make images` |
+
+## Credits and licenses
+
+- Design: **Forty** by [HTML5 UP](https://html5up.net), licensed under
+  [CC BY 3.0](LICENSE-THEME.md). It has been modified for this site (Internet Explorer support removed,
+  Font Awesome 6, resume and gallery components, other changes).
+- Jekyll port of the theme by [Andrew Banchich](https://github.com/andrewbanchich/forty-jekyll-theme) (MIT).
+- Icons: [Font Awesome Free](https://fontawesome.com) (icons CC BY 4.0, fonts SIL OFL 1.1, code MIT).
+- **Content and photographs © Sepehr Samavati. All rights reserved.**

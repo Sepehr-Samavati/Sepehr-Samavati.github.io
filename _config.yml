@@ -44,9 +44,7 @@ sass:
 # Files that are part of the repository but must not be published.
 # (On Jekyll 3 this list replaces Jekyll's defaults, so they are listed here.)
 exclude:
-- "*.gemspec"
-- LICENSE.md
-- CONTRIBUTING.md
+- LICENSE-THEME.md
 - README.md
 - scripts/
 - Makefile
