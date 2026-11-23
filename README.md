@@ -32,51 +32,85 @@ make serve        # http://localhost:4000, the browser reloads when you save a f
 A build check runs on GitHub for every push and pull request
 (`.github/workflows/build-check.yml`), so a broken build shows up before it is merged.
 
-## Adding content
+## Editing content
 
-### A photo to the Photography page
-1. Copy the photo into `assets/images/gallery/`.
-2. Run `make images` (resizes it to max 2000 px, removes camera metadata, makes a thumbnail).
-3. Add an entry to `_data/gallery.yml`:
-   ```yaml
-   - image: my-photo.jpg
-     alt: Short description of the photo
-     caption: Optional caption shown in the full-screen view
-     link: https://www.instagram.com/p/...   # optional
-   ```
+### The easy way: Pages CMS (in the browser, also on a phone)
+
+1. Open **https://app.pagescms.org** and sign in with GitHub.
+2. The first time, install the Pages CMS GitHub app for this repository when asked.
+3. Pick this repository (and the branch, normally `master`).
+
+You get a form-based editor for:
+
+| Section in the editor | What it changes | Where it is stored |
+|---|---|---|
+| Blog posts | Posts on /blog/ (title, date, tags, cover image, text) | `_posts/` |
+| Photography | Gallery photos with caption and Instagram link | `_data/gallery.yml` + `assets/images/gallery/` |
+| Resume | Jobs, education, skill groups | `_data/resume.yml` |
+| Projects | Project blocks | `_projects/` |
+| Interests and Hobbies | Hobby blocks (+ Dota 2 account ID for live stats) | `_hobbies/` |
+| Other Activities | Activity blocks, newest first | `_activities/` |
+| About Me | Portrait and text | `about.md` |
+
+Each **Save** is a commit to GitHub; the live site updates about a minute later.
+Uploaded images are resized and get thumbnails automatically
+(`.github/workflows/optimize-images.yml`), a moment after the upload.
+The editor's configuration is `.pages.yml`.
+
+### By hand (in VS Code)
+
+All content is plain text files, so you can also edit them directly and preview with `make serve`.
+
+- **Blog post:** create `_posts/2026-11-23-my-title.md`:
+  ```yaml
+  ---
+  title: My title
+  description: One sentence for the post list (optional)
+  tags: [Embedded, Linux]
+  image: /assets/images/my-cover.jpg   # optional
+  ---
+  The text, in Markdown.
+  ```
+- **Photo:** copy it to `assets/images/gallery/`, run `make images`, add it to `_data/gallery.yml`
+  (`image`, `caption`, `instagram`, `alt`).
+- **Project / hobby / activity:** add a `.md` file to `_projects/`, `_hobbies/` or `_activities/`
+  (copy an existing one; fields: `title`, `image`, `image_alt`, `image_height`, `link`,
+  `link_label`, `order` or `date`, then the text).
+- **Resume:** edit `_data/resume.yml`.
+- **Dota 2 stats:** set `dota_account_id` in `_hobbies/games.md` (the number in your
+  OpenDota or Dotabuff profile URL). "Expose Public Match Data" must be enabled in Dota 2's settings.
 
 ### A new page
-Create a `.md` file in the root folder, e.g. `G-Talks.md`:
+Create a `.md` file in the root folder:
 
 ```yaml
 ---
 title: Talks
 permalink: /talks/
 layout: page
-image: assets/images/some-image.jpg   # used for the homepage tile
-nav-menu: true                        # show in the menu
+image: /assets/images/some-image.jpg   # homepage tile image
+nav-menu: true                         # show in the menu
+nav_order: 8                           # position in menu and tiles
 ---
 ```
 
-Pages appear in the menu and as homepage tiles in file-name order (hence the `A-`, `B-`… prefixes).
 Ready-made layouts and components to copy from are in [`_templates/`](_templates/).
-
-### Other images
-Put them in `assets/images/` and run `make images`.
 
 ## Project structure
 
 | Path | Contents |
 |------|----------|
-| `A-…md` … `F-…md` | The site's pages |
-| `_config.yml` | Site title, email, social links, homepage tile settings |
-| `_data/gallery.yml` | Photos shown on the Photography page |
-| `_layouts/`, `_includes/` | Page templates (header, footer, gallery, …) |
-| `_sass/`, `assets/css/main.scss` | Styles (`_sass/components/_jobs.scss` = resume, `_gallery.scss` = gallery) |
-| `assets/js/` | Theme scripts and `gallery.js` (full-screen photo viewer) |
+| `about.md`, `resume.md`, `photography.md`, `projects.md`, `hobbies.md`, `activities.md`, `blog.md` | The pages (mostly templates; content comes from the folders below) |
+| `_posts/`, `_projects/`, `_hobbies/`, `_activities/` | One Markdown file per post / project / hobby / activity |
+| `_data/resume.yml`, `_data/gallery.yml` | Resume and photo gallery content |
+| `_config.yml` | Site title, email, social links, collections, page defaults |
+| `.pages.yml` | Pages CMS editor configuration |
+| `_layouts/`, `_includes/` | Page templates (header, footer, gallery, spotlights, …) |
+| `_sass/`, `assets/css/main.scss` | Styles (`_jobs` = resume, `_gallery`, `_blog`, `_dota`, …) |
+| `assets/js/` | Theme scripts plus `gallery.js` (photo viewer), `blog.js` (tag filter), `dota.js` (Dota 2 stats) |
 | `assets/vendor/fontawesome/` | Font Awesome 6 icons |
 | `_templates/` | Theme demo pages, not published |
-| `scripts/optimize_images.py` | Image optimizer used by `make images` |
+| `scripts/optimize_images.py` | Image optimizer (`make images` and the GitHub workflow) |
 
 ## Credits and licenses
 
