@@ -46,19 +46,19 @@ nav-menu: true
 		<h2>Data Analysis Consultant</h2>
 		<a href="https://7sangteam.ir/" target="_blank" class="company">7SangTeam</a>
 		<div class="duration">Jan 2022 - Oct 2022</div>
-		<p>Implemented statical methods and software to analyze employee engagement.</p>
+		<p>Implemented statistical methods and software to analyze employee engagement.</p>
 		<div class="skills">Python (Programming Language), SciPy, Seaborn, Statistical Data Analysis</div>
 	</div>
         
 <hr class="minor" />
 <h2 id="Education">Education</h2>
 	<div class="education">
-		<h2>Master's degree, Automation and Control Engineering</h2>
+		<h2>Master’s Degree, Automation and Control Engineering</h2>
 		<a href="https://www.polimi.it/" target="_blank" class="university">Politecnico di Milano</a>
 		<div class="duration">2019 - 2022</div>
     </div>
 	<div class="education">
-		<h2>Bachelor’s Degree, Electrical Engineering </h2>
+		<h2>Bachelor’s Degree, Electrical Engineering</h2>
 		<a href="https://ut.ac.ir" target="_blank" class="university">University of Tehran</a>
 		<div class="duration">2013 - 2017</div>
     </div>
