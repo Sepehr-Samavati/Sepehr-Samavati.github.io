@@ -56,9 +56,9 @@ scripts:
 
 		<nav class="resume-nav" aria-label="Resume sections">
 			<a href="#experience">Experience</a>
+			{% if has_recommendations %}<a href="#recommendations">Recommendations</a>{% endif %}
 			<a href="#education">Education</a>
 			<a href="#skills">Skills</a>
-			{% if has_recommendations %}<a href="#recommendations">Recommendations</a>{% endif %}
 			{% if has_publications %}<a href="#publications">Publications</a>{% endif %}
 			{% if has_awards or has_certificates %}<a href="#awards">Awards</a>{% endif %}
 		</nav>
@@ -103,6 +103,57 @@ scripts:
 			</ol>
 		</section>
 
+		{% if has_recommendations %}
+		<!-- Recommendations: card deck, one at a time; person first, key sentences, full text on demand (assets/js/recommendations.js) -->
+		<section id="recommendations" class="resume-section">
+			<h2>What people say</h2>
+			<div class="rec-carousel" aria-roledescription="carousel" aria-label="Recommendations">
+				<div class="rec-slides">
+				{% for rec in resume.recommendations %}
+					{% assign rec_url = rec.url | default: false %}
+					{% assign rec_photo = rec.photo | default: false %}
+					{% assign rec_relation = rec.relation | default: false %}
+					{% assign rec_highlight = rec.highlight | default: false %}
+					{% assign name_parts = rec.name | split: " " %}
+					<figure class="rec-slide{% if forloop.first %} is-active{% endif %}" aria-roledescription="slide" aria-label="{{ forloop.index }} of {{ forloop.length }}">
+						<figcaption class="rec-person">
+							<span class="rec-avatar-ring" aria-hidden="true">
+								{% if rec_photo %}<img src="{{ rec_photo | relative_url }}" alt="" loading="lazy" />{% else %}<span class="rec-avatar">{{ name_parts.first | slice: 0 }}{{ name_parts.last | slice: 0 }}</span>{% endif %}
+							</span>
+							<span class="rec-who">
+								<strong>{% if rec_url %}<a href="{{ rec_url }}" target="_blank" rel="noopener noreferrer">{{ rec.name }}</a>{% else %}{{ rec.name }}{% endif %}</strong>
+								<span class="rec-role">{{ rec.role }}</span>
+								{% if rec_relation %}<span class="rec-relation">{{ rec_relation }}</span>{% endif %}
+							</span>
+							<span class="rec-mark" aria-hidden="true">&ldquo;</span>
+						</figcaption>
+						<blockquote>
+							{% if rec_highlight %}
+							<p class="rec-highlight">{{ rec_highlight }}</p>
+							<details class="rec-more">
+								<summary><span class="rec-more-open">Read full recommendation</span><span class="rec-more-close">Show less</span></summary>
+								<div class="rec-full">{{ rec.quote | markdownify }}</div>
+							</details>
+							{% else %}
+							<div class="rec-full rec-full-only">{{ rec.quote | markdownify }}</div>
+							{% endif %}
+						</blockquote>
+					</figure>
+				{% endfor %}
+				</div>
+				{% if resume.recommendations.size > 1 %}
+				<div class="rec-controls">
+					<button type="button" class="rec-prev" aria-label="Previous recommendation">&#8249;</button>
+					<div class="rec-dots">
+						{% for rec in resume.recommendations %}<button type="button" class="rec-dot{% if forloop.first %} is-active{% endif %}" aria-label="Recommendation {{ forloop.index }}: {{ rec.name }}"><span></span></button>{% endfor %}
+					</div>
+					<button type="button" class="rec-next" aria-label="Next recommendation">&#8250;</button>
+				</div>
+				{% endif %}
+			</div>
+		</section>
+		{% endif %}
+
 		<!-- Education -->
 		<section id="education" class="resume-section">
 			<h2>Education</h2>
@@ -136,53 +187,6 @@ scripts:
 			{% endfor %}
 			</div>
 		</section>
-
-		{% if has_recommendations %}
-		<!-- Recommendations: one at a time, highlight first, full text on demand (assets/js/recommendations.js) -->
-		<section id="recommendations" class="resume-section">
-			<h2>What people say</h2>
-			<div class="rec-carousel" aria-roledescription="carousel" aria-label="Recommendations">
-				<div class="rec-slides">
-				{% for rec in resume.recommendations %}
-					{% assign rec_url = rec.url | default: false %}
-					{% assign rec_photo = rec.photo | default: false %}
-					{% assign rec_relation = rec.relation | default: false %}
-					{% assign rec_highlight = rec.highlight | default: false %}
-					{% assign name_parts = rec.name | split: " " %}
-					<figure class="rec-slide{% if forloop.first %} is-active{% endif %}" aria-roledescription="slide" aria-label="{{ forloop.index }} of {{ forloop.length }}">
-						<blockquote>
-							{% if rec_highlight %}
-							<p class="rec-highlight">{{ rec_highlight }}</p>
-							<details class="rec-more">
-								<summary><span class="rec-more-open">Read full recommendation</span><span class="rec-more-close">Show less</span></summary>
-								<div class="rec-full">{{ rec.quote | markdownify }}</div>
-							</details>
-							{% else %}
-							<div class="rec-full rec-full-only">{{ rec.quote | markdownify }}</div>
-							{% endif %}
-						</blockquote>
-						<figcaption>
-							{% if rec_photo %}<img src="{{ rec_photo | relative_url }}" alt="" loading="lazy" />{% else %}<span class="rec-avatar" aria-hidden="true">{{ name_parts.first | slice: 0 }}{{ name_parts.last | slice: 0 }}</span>{% endif %}
-							<div>
-								<strong>{% if rec_url %}<a href="{{ rec_url }}" target="_blank" rel="noopener noreferrer">{{ rec.name }}</a>{% else %}{{ rec.name }}{% endif %}</strong>
-								<span class="resume-muted">{{ rec.role }}{% if rec_relation %} · {{ rec_relation }}{% endif %}</span>
-							</div>
-						</figcaption>
-					</figure>
-				{% endfor %}
-				</div>
-				{% if resume.recommendations.size > 1 %}
-				<div class="rec-controls">
-					<button type="button" class="rec-prev" aria-label="Previous recommendation">&#8249;</button>
-					<div class="rec-dots">
-						{% for rec in resume.recommendations %}<button type="button" class="rec-dot{% if forloop.first %} is-active{% endif %}" aria-label="Recommendation {{ forloop.index }}: {{ rec.name }}"></button>{% endfor %}
-					</div>
-					<button type="button" class="rec-next" aria-label="Next recommendation">&#8250;</button>
-				</div>
-				{% endif %}
-			</div>
-		</section>
-		{% endif %}
 
 		{% if has_publications %}
 		<!-- Publications -->
