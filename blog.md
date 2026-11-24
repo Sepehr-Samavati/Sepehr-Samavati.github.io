@@ -1,4 +1,5 @@
 ---
+description: "Blog by Sepehr Samavati about embedded software, engineering, photography and more."
 title: Blog
 permalink: /blog/
 layout: page

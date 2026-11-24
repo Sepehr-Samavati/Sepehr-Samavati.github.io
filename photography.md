@@ -1,4 +1,5 @@
 ---
+description: "Photography by Sepehr Samavati: landscapes, cities, nature and animals, with a focus on contrast and stories."
 permalink: /photography/
 redirect_from: "/C-Photography.html"
 layout: page

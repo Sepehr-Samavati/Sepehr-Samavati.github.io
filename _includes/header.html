@@ -14,7 +14,7 @@
 	<ul class="links">
         {% for page in site.pages %}
 		    {% if page.layout == "home" %}
-		        <li><a href="{{ "/" | relative_url }}">{{ page.title }}</a></li>
+		        <li><a href="{{ "/" | relative_url }}">Home</a></li>
 	    	{% endif %}
 		{% endfor %}
 		{% assign nav_pages = site.html_pages | where: "nav-menu", true | sort: "nav_order", "last" %}

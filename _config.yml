@@ -1,11 +1,15 @@
 # site settings
 title: Sepehr Samavati
+tagline: Software Engineer & Photographer   # shown after the name in the homepage's browser tab / search result
 email: Sepehr.Samavati.Official@gmail.com
 avatar: /assets/images/my_pic.jpg
 description: "Personal website of Sepehr Samavati: software engineer and photographer based in Milan."
 baseurl: "" # the subpath of your site, e.g. /blog
 url: https://sepehrsamavati.com # the base hostname & protocol for your site
 author:
+  name: Sepehr Samavati
+  twitter: SepehrSamavati
+lang: en_US
 street_address: 
 city: Milan
 state: 
@@ -37,6 +41,25 @@ markdown: kramdown
 
 plugins:
   - jekyll-redirect-from   # old page URLs (e.g. /A-About Me.html) redirect to the new ones
+  - jekyll-seo-tag         # <title>, description, link previews (Open Graph / X cards), structured data
+  - jekyll-sitemap         # /sitemap.xml for search engines
+  - jekyll-feed            # /feed.xml so readers can follow the blog
+
+# Search engines and link previews (used by jekyll-seo-tag)
+logo: /assets/icons/icon-512.png
+social_image: /assets/images/my_pic.jpg   # preview image for pages that have no image of their own
+social:
+  name: Sepehr Samavati
+  links:
+    - https://github.com/Sepehr-Samavati
+    - https://www.linkedin.com/in/Sepehr-Samavati
+    - https://www.instagram.com/skyskiesvision
+    - https://x.com/SepehrSamavati
+twitter:
+  username: SepehrSamavati
+  card: summary_large_image
+feed:
+  path: blog/feed.xml
 
 # Content collections: one markdown file per item, listed on their page.
 collections:
@@ -54,7 +77,6 @@ defaults:
       path: "index.md"
     values:
       layout: home
-      title: Home
       show_tile: false
   - scope:
       path: ""
@@ -66,6 +88,7 @@ defaults:
       path: "about.md"
     values:
       layout: about
+      description: "About Sepehr Samavati: software engineer in Milan, photographer, and leader at heart."
       permalink: /about/
       nav-menu: true
       nav_order: 1

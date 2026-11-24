@@ -1,4 +1,5 @@
 ---
+description: "Other activities of Sepehr Samavati beyond work."
 permalink: /activities/
 redirect_from: "/F-Other Activities.html"
 layout: page

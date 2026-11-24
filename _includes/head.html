@@ -1,6 +1,28 @@
 <head>
-	<title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
 	<meta charset="utf-8" />
+	<!-- Title, description, canonical URL, link previews and structured data (jekyll-seo-tag) -->
+	{% seo %}
+	{% unless page.image %}
+	<meta property="og:image" content="{{ site.social_image | absolute_url }}" />
+	<meta name="twitter:image" content="{{ site.social_image | absolute_url }}" />
+	{% endunless %}
+	{% feed_meta %}
+	{% if page.layout == "home" %}
+	<!-- Tells search engines who this site is about (can show as a profile card in results) -->
+	<script type="application/ld+json">
+	{
+		"@context": "https://schema.org",
+		"@type": "Person",
+		"name": {{ site.author.name | jsonify }},
+		"url": {{ "/" | absolute_url | jsonify }},
+		"image": {{ site.social_image | absolute_url | jsonify }},
+		"jobTitle": "Software Engineer",
+		"address": { "@type": "PostalAddress", "addressLocality": {{ site.city | jsonify }}, "addressCountry": {{ site.country | jsonify }} },
+		"alumniOf": [{% for edu in site.data.resume.education %}{ "@type": "CollegeOrUniversity", "name": {{ edu.school | jsonify }} }{% unless forloop.last %}, {% endunless %}{% endfor %}],
+		"sameAs": {{ site.social.links | jsonify }}
+	}
+	</script>
+	{% endif %}
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<!-- Icons (browser tab, bookmarks, phone home screen). Source: assets/icons/ -->
 	<link rel="icon" href="{{ '/favicon.ico' | relative_url }}" sizes="48x48" />

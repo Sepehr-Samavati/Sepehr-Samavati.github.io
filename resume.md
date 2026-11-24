@@ -1,4 +1,5 @@
 ---
+description: "Resume of Sepehr Samavati: embedded software engineer (C++, Linux kernel, Yocto) with a master’s in Automation and Control Engineering from Politecnico di Milano."
 permalink: /resume/
 redirect_from: "/B-Resume.html"
 layout: page
