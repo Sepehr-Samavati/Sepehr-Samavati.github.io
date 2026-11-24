@@ -164,6 +164,31 @@ awards:
 #   highlight: one or two key sentences shown first; the full quote opens with "Read more"
 recommendations:
   - quote: |
+      Sepehr is one of the most talented young engineers I’ve ever met. It is a pleasure to work daily with him. He’s showing a maturity beyond any expectations.
+      He’s passionate, a tireless worker, able to take difficult tasks with responsibility and commitment. He shares progress and thoughts, and he has a strong technical leadership. He’s very good in designing complex software and finding architectural solutions. Among the knowledge of others language, he has a proficient level of C++. He is a very appreciated team member, able to work in a cross functional team using agile methodologies. He can speak fluent English and some Italian on top of his native language.
+    highlight: "Sepehr is one of the most talented young engineers I’ve ever met. He’s showing a maturity beyond any expectations."
+    name: Alessandro Cinquini
+    role: Line Manager at Ericsson AB
+    relation: Sepehr’s mentor (2023)
+    photo:
+    url:
+
+  - quote: |
+      I had the pleasure of working with Sepehr as part of my team at STIGA, where he consistently demonstrated strong commitment, curiosity, and a clear focus on achieving results.
+
+      Beyond his technical skills, Sepehr took a proactive approach to improving the way we worked as a team. He introduced new best practices, encouraged open technical discussions, and helped foster a culture of continuous improvement.
+
+      He has a solid technical background in embedded systems and Linux development, ranging from I/O management, modules, and device drivers to Linux kernel development.
+
+      Sepehr combines strong technical skills and versatility with a collaborative attitude and a genuine drive to learn, improve, and get things done. I would be happy to work with him again and highly recommend him.
+    highlight: "Beyond his technical skills, Sepehr took a proactive approach to improving the way we worked as a team. He introduced new best practices, encouraged open technical discussions, and helped foster a culture of continuous improvement."
+    name: Michele Scapin
+    role: Chief Engineering Director | Executive MBA POLIMI GSoM
+    relation: Managed Sepehr directly at STIGA
+    photo:
+    url:
+
+  - quote: |
       I had the pleasure and the honor to work with Sepehr @Stiga.
       During the time spent together, he showed some great capabilities which are not often found on a single professional: He is the typical T-Shaped profile: A deep, solid and broad Technical knowledge on SW Embedded development, with great understanding of the HW context, enabling him to develop, high performing, scalable solutions. This combined with a strong Architectural vision, capable to connect functional need with ad hoc FW solutions.
 
@@ -189,35 +214,10 @@ recommendations:
     photo:
     url:
 
-  - quote: |
-      I had the pleasure of working with Sepehr as part of my team at STIGA, where he consistently demonstrated strong commitment, curiosity, and a clear focus on achieving results.
-
-      Beyond his technical skills, Sepehr took a proactive approach to improving the way we worked as a team. He introduced new best practices, encouraged open technical discussions, and helped foster a culture of continuous improvement.
-
-      He has a solid technical background in embedded systems and Linux development, ranging from I/O management, modules, and device drivers to Linux kernel development.
-
-      Sepehr combines strong technical skills and versatility with a collaborative attitude and a genuine drive to learn, improve, and get things done. I would be happy to work with him again and highly recommend him.
-    highlight: "Beyond his technical skills, Sepehr took a proactive approach to improving the way we worked as a team. He introduced new best practices, encouraged open technical discussions, and helped foster a culture of continuous improvement."
-    name: Michele Scapin
-    role: Chief Engineering Director | Executive MBA POLIMI GSoM
-    relation: Managed Sepehr directly at STIGA
-    photo:
-    url:
-
   - quote: I had the chance to work directly with Sepehr on a project at STIGA, and what stood out most was his technical problem-solving ability, especially on Linux, where he clearly knew his way around. He was also incredibly patient (saint-level patience, honestly) and reviewed every one of my pull requests with a level of accuracy that occasionally made me question my own code. He was a great teammate to have on board, and I'm confident he'll bring the same value to whatever he takes on next.
     highlight: "He was also incredibly patient (saint-level patience, honestly) and reviewed every one of my pull requests with a level of accuracy that occasionally made me question my own code."
     name: Sharareh Tahmasebi
     role: AI Engineer | Computer Vision & Edge AI | Embedded C++ | Robotics
     relation: Worked with Sepehr on the same team at STIGA
-    photo:
-    url:
-
-  - quote: |
-      Sepehr is one of the most talented young engineers I’ve ever met. It is a pleasure to work daily with him. He’s showing a maturity beyond any expectations.
-      He’s passionate, a tireless worker, able to take difficult tasks with responsibility and commitment. He shares progress and thoughts, and he has a strong technical leadership. He’s very good in designing complex software and finding architectural solutions. Among the knowledge of others language, he has a proficient level of C++. He is a very appreciated team member, able to work in a cross functional team using agile methodologies. He can speak fluent English and some Italian on top of his native language.
-    highlight: "Sepehr is one of the most talented young engineers I’ve ever met. He’s showing a maturity beyond any expectations."
-    name: Alessandro Cinquini
-    role: Line Manager at Ericsson AB
-    relation: Sepehr’s mentor (2023)
     photo:
     url:
