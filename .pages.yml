@@ -439,6 +439,42 @@ content:
           format: markdown
           media: images
 
+  # ---------------------------------------------------------------- Journey timeline
+  - name: timeline
+    label: My journey (About page timeline)
+    type: file
+    path: _data/timeline.yml
+    format: yaml
+    list: true
+    fields:
+      - name: date
+        label: Date (YYYY or YYYY-MM, e.g. 2022-08)
+        type: string
+        required: true
+      - name: title
+        label: Title
+        type: string
+        required: true
+      - name: place
+        label: Where (optional)
+        type: string
+      - name: category
+        label: Category (sets the color)
+        type: select
+        options:
+          values: [education, work, project, life]
+      - name: text
+        label: Short text (optional)
+        type: text
+      - name: image
+        label: Small image (optional)
+        type: image
+        options:
+          media: images
+      - name: link
+        label: Link (optional)
+        type: string
+
   # ---------------------------------------------------------------- About
   - name: about
     label: About Me

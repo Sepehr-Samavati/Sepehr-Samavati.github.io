@@ -1,0 +1,44 @@
+{% comment %}
+  "My journey": interactive timeline fed by _data/timeline.yml.
+  Horizontal and scrollable on wide screens, vertical on phones.
+  assets/js/journey.js adds arrows, drag-to-scroll, filters and fade-in.
+{% endcomment %}
+{% assign events = site.data.timeline %}
+{% if events and events.size > 0 %}
+<section class="journey" aria-label="My journey">
+	<header class="journey-header">
+		<h2>My journey</h2>
+		<div class="journey-filters" role="group" aria-label="Show">
+			<button type="button" class="is-active" data-filter="">All</button>
+			{% assign cats = events | map: "category" | uniq %}
+			{% for cat in cats %}{% if cat %}<button type="button" data-filter="{{ cat }}"><span class="journey-swatch cat-{{ cat }}"></span>{{ cat | capitalize }}</button>{% endif %}{% endfor %}
+		</div>
+	</header>
+
+	<div class="journey-viewport">
+		<button type="button" class="journey-arrow journey-prev" aria-label="Earlier">&#8249;</button>
+		<ol class="journey-track" tabindex="0">
+		{% assign last_year = "" %}
+		{% for e in events %}
+			{% assign d = e.date | append: "" %}
+			{% assign year = d | slice: 0, 4 %}
+			{% assign link = e.link | default: false %}
+			{% assign img = e.image | default: false %}
+			<li class="journey-event cat-{{ e.category | default: 'life' }}" data-category="{{ e.category | default: 'life' }}">
+				{% if year != last_year %}<span class="journey-year">{{ year }}</span>{% assign last_year = year %}{% endif %}
+				<span class="journey-dot" aria-hidden="true"></span>
+				{% if link %}<a class="journey-card" href="{{ link | relative_url }}"{% unless link contains '://' %}{% else %} target="_blank" rel="noopener noreferrer"{% endunless %}>{% else %}<div class="journey-card">{% endif %}
+					{% if img %}<img src="{{ img | relative_url }}" alt="" loading="lazy" />{% endif %}
+					<p class="journey-date">{% if d.size > 4 %}{{ d | append: "-01" | date: "%b %Y" }}{% else %}{{ d }}{% endif %}</p>
+					<h3>{{ e.title }}</h3>
+					{% if e.place %}<p class="journey-place">{{ e.place }}</p>{% endif %}
+					{% if e.text %}<p class="journey-text">{{ e.text }}</p>{% endif %}
+				{% if link %}</a>{% else %}</div>{% endif %}
+			</li>
+		{% endfor %}
+		</ol>
+		<button type="button" class="journey-arrow journey-next" aria-label="Later">&#8250;</button>
+	</div>
+	<p class="journey-hint">Drag, scroll or use the arrows to travel through time.</p>
+</section>
+{% endif %}

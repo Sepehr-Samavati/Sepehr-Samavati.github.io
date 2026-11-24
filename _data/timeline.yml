@@ -1,0 +1,56 @@
+# "My journey" timeline on the About page (oldest first).
+#   date:     "YYYY" or YYYY-MM (shown as e.g. "Aug 2022")  (required)
+# Entries are shown in the order of this file.
+#   title:    short headline                          (required)
+#   place:    where (optional)
+#   category: education | work | project | life
+#   text:     one or two sentences (optional)
+#   image:    optional small image on the card (use sparingly)
+#   link:     optional URL (makes the card clickable)
+
+- date: "2013"
+  title: Bachelor’s in Electrical Engineering
+  place: University of Tehran
+  category: education
+  text: Where it all started, circuits, signals and my first lines of code.
+
+- date: "2017"
+  title: Graduated, B.Sc. Electrical Engineering
+  place: University of Tehran
+  category: education
+
+- date: "2019"
+  title: Master’s in Automation and Control Engineering
+  place: Politecnico di Milano
+  category: education
+  text: A new chapter in Italy.
+
+- date: 2022-01
+  title: Data Analysis Consultant
+  place: 7SangTeam
+  category: work
+  text: Statistical methods and software to analyze employee engagement.
+
+- date: "2022"
+  title: Tehran Constitutional Map app
+  place: University of Tehran, Dept. of History
+  category: project
+  text: Android app mapping 160 historical places of the Constitutional Revolution.
+  link: https://github.com/Sepehr-Samavati/Tehran-Constitutional-Map-Application
+
+- date: "2022"
+  title: Graduated, M.Sc. Automation and Control Engineering
+  place: Politecnico di Milano
+  category: education
+
+- date: 2022-08
+  title: Software Developer
+  place: HCLTech, for Ericsson
+  category: work
+  text: C++ and object-oriented design for Ericsson’s modems and radios.
+
+- date: 2024-01
+  title: Software Engineer
+  place: HCLTech, for Ericsson
+  category: work
+  text: Linux kernel, drivers, Yocto and U-Boot for modem boards.
