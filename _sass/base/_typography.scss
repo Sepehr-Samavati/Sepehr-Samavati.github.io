@@ -9,13 +9,15 @@
 	body, input, select, textarea {
 		color: _palette(fg);
 		font-family: _font(family);
-		font-size: 17pt;
+		font-size: 15pt;
 		font-weight: _font(weight);
 		letter-spacing: _font(letter-spacing);
-		line-height: 1.65;
+		line-height: 1.7;
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
 
 		@include breakpoint(xlarge) {
-			font-size: 14pt;
+			font-size: 13pt;
 		}
 
 		@include breakpoint(large) {
@@ -174,4 +176,14 @@
 
 	.align-right {
 		text-align: right;
+	}
+
+/* Readable line length for long text (About page, blog posts) */
+
+	.prose {
+		max-width: 42em;
+	}
+
+	.prose p, .prose li {
+		color: rgba(255, 255, 255, 0.88);
 	}

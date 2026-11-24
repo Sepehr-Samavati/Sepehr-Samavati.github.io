@@ -20,12 +20,12 @@
 
 // Font.
 	$font: (
-		family:				('Source Sans Pro', Helvetica, sans-serif),
+		family:				('Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif),
 		family-fixed:		('Courier New', monospace),
-		weight:				300,
+		weight:				400,
 		weight-bold:		600,
-		letter-spacing:		0.025em,
-		letter-spacing-alt:	0.25em
+		letter-spacing:		0,
+		letter-spacing-alt:	0.2em
 	);
 
 // Palette.
@@ -33,9 +33,9 @@
 		bg:					#242943,
 		bg-alt:				#2a2f4a,
 		fg:					#ffffff,
-		fg-middle:			#778DA9,
+		fg-middle:			#94A6C2,		// secondary text (dates, captions): 4.9:1+ contrast
 		fg-bold:			#ffffff,
-		fg-light:			rgba(244,244,255,0.2),
+		fg-light:			rgba(244,244,255,0.6),	// faint text (footer, placeholders): 5.7:1 contrast
 		border:				rgba(212,212,255,0.1),
 		border-bg:			rgba(212,212,255,0.035),
 		highlight:			#9bf1ff,

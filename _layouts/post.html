@@ -34,7 +34,9 @@
 		{% endif %}
 		{% endif %}
 		{% assign cover = page.image | default: false %}{% if cover %}<span class="image main{% if page.collection == "posts" %} post-cover{% endif %}"><img src="{{ cover | relative_url }}" alt="{{ page.image_alt | default: page.title | escape }}" /></span>{% endif %}
+		<div class="prose">
 		{{ content }}
+		</div>
 		{% if page.collection == "posts" %}
 		<ul class="actions post-back">
 			<li><a href="{{ '/blog/' | relative_url }}" class="button">&larr; All posts</a></li>
