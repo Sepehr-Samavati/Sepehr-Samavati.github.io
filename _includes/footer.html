@@ -1,4 +1,5 @@
-<!-- Contact -->
+{% if page.layout == "home" %}
+<!-- Contact: full version (form + details) on the homepage only -->
 <section id="contact">
 	<div class="inner">
 		<section>
@@ -57,6 +58,16 @@
 		</section>
 	</div>
 </section>
+{% else %}
+<!-- Contact: compact version on all other pages -->
+<section id="contact-compact">
+	<div class="inner">
+		<h3>Let’s get in touch</h3>
+		<a href="mailto:{{ site.email }}" class="contact-compact-email"><span class="icon fa-envelope" aria-hidden="true"></span> {{ site.email }}</a>
+		<a href="{{ '/' | relative_url }}#contact" class="button small">Send a message</a>
+	</div>
+</section>
+{% endif %}
 
 <!-- Footer -->
 	<footer id="footer">

@@ -92,3 +92,41 @@
 			}
 		}
 	}
+/* Compact contact bar (all pages except the homepage) */
+
+	#contact-compact {
+		border-bottom: solid 1px _palette(border);
+		overflow-x: hidden;
+
+		> .inner {
+			align-items: center;
+			display: flex;
+			flex-wrap: wrap;
+			gap: 1em 2em;
+			margin: 0 auto;
+			max-width: _size(inner);
+			padding: 2.5em 0;
+			width: calc(100% - 6em);
+
+			@include breakpoint(small) {
+				padding: 2em 0;
+				width: calc(100% - 3em);
+			}
+		}
+
+		h3 {
+			margin: 0;
+			flex: 1 1 auto;
+		}
+
+		.contact-compact-email {
+			border-bottom: 0;
+			color: _palette(fg);
+
+			.icon { margin-right: 0.35em; }
+
+			&:hover { color: _palette(accent1); }
+		}
+
+		.button { margin: 0; }
+	}
