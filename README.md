@@ -44,9 +44,10 @@ You get a form-based editor for:
 
 | Section in the editor | What it changes | Where it is stored |
 |---|---|---|
+| Homepage | Headline, text, banner photo, search description | `index.md` |
 | Blog posts | Posts on /blog/ (title, date, tags, cover image, text) | `_posts/` |
 | Photography | Gallery photos with caption and Instagram link | `_data/gallery.yml` + `assets/images/gallery/` |
-| Resume | Jobs, education, skill groups | `_data/resume.yml` |
+| Resume | CV file, jobs (current role = no end date), education, skills, publications, certificates | `_data/resume.yml` + `assets/files/` |
 | Projects | Project blocks | `_projects/` |
 | Interests and Hobbies | Hobby blocks (+ Dota 2 account ID for live stats) | `_hobbies/` |
 | Other Activities | Activity blocks, newest first | `_activities/` |
@@ -76,7 +77,12 @@ All content is plain text files, so you can also edit them directly and preview 
 - **Project / hobby / activity:** add a `.md` file to `_projects/`, `_hobbies/` or `_activities/`
   (copy an existing one; fields: `title`, `image`, `image_alt`, `image_height`, `link`,
   `link_label`, `order` or `date`, then the text).
-- **Resume:** edit `_data/resume.yml`.
+- **Resume:** edit `_data/resume.yml`. A job with an empty `end` is shown as your current role.
+  Publications and certificates sections appear as soon as their lists have entries.
+- **CV (PDF):** replace `assets/files/Sepehr-Samavati-CV.pdf` (currently a TEST placeholder) or set `cv_file`.
+- **Homepage banner photo:** set `banner:` in `index.md` (e.g. `/assets/images/my-photo.jpg`).
+- **Google Scholar link:** set `Google-Scholar:` under `socials` in `_config.yml`
+  (adds the footer icon and the Resume button).
 - **Dota 2 stats:** set `dota_account_id` in `_hobbies/games.md` (the number in your
   OpenDota or Dotabuff profile URL). "Expose Public Match Data" must be enabled in Dota 2's settings.
 
@@ -95,6 +101,14 @@ nav_order: 8                           # position in menu and tiles
 ```
 
 Ready-made layouts and components to copy from are in [`_templates/`](_templates/).
+
+## Search engines, link previews, icons
+
+- Titles, descriptions and link previews (Open Graph / X cards) come from `jekyll-seo-tag`:
+  each page's `description:` and `image:`, plus the settings under "Search engines" in `_config.yml`.
+- `/sitemap.xml` is generated automatically; `robots.txt` points search engines to it.
+- The blog has a feed at `/blog/feed.xml`.
+- Browser/phone icons: `favicon.ico` and `assets/icons/` (replace the files to change the icon).
 
 ## Project structure
 

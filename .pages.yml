@@ -18,8 +18,36 @@ media:
     output: /assets/images/gallery
     extensions: [jpg, jpeg, png, webp]
     rename: safe
+  - name: files
+    label: Files (CV)
+    input: assets/files
+    output: /assets/files
+    extensions: [pdf]
 
 content:
+  # ---------------------------------------------------------------- Home
+  - name: home
+    label: Homepage
+    type: file
+    path: index.md
+    format: yaml-frontmatter
+    fields:
+      - name: landing-title
+        label: Headline
+        type: string
+        required: true
+      - name: tagline
+        label: Text under the headline
+        type: text
+      - name: banner
+        label: Background photo of the top section
+        type: image
+        options:
+          media: images
+      - name: description
+        label: Description for search engines / link previews
+        type: text
+
   # ---------------------------------------------------------------- Blog
   - name: posts
     label: Blog posts
@@ -102,6 +130,11 @@ content:
     path: _data/resume.yml
     format: yaml
     fields:
+      - name: cv_file
+        label: CV file (PDF) for the Download CV button
+        type: file
+        options:
+          media: files
       - name: experience
         label: Work experience (newest first)
         type: object
@@ -125,7 +158,10 @@ content:
             label: Start (e.g. Jan 2024)
             type: string
           - name: end
-            label: End (empty = Present)
+            label: End (empty = Present, shown as your current role)
+            type: string
+          - name: location
+            label: Location (optional, e.g. Milan, Italy)
             type: string
           - name: summary
             label: Summary paragraph (optional)
@@ -181,6 +217,51 @@ content:
             label: Skills
             type: string
             list: true
+      - name: publications
+        label: Recent publications (newest first)
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{title} ({year})"
+        fields:
+          - name: title
+            label: Title
+            type: string
+            required: true
+          - name: authors
+            label: Authors
+            type: string
+          - name: venue
+            label: Conference / journal
+            type: string
+          - name: year
+            label: Year
+            type: string
+          - name: url
+            label: Link (DOI or PDF)
+            type: string
+      - name: certificates
+        label: Certificates (newest first)
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{name}"
+        fields:
+          - name: name
+            label: Certificate
+            type: string
+            required: true
+          - name: issuer
+            label: Issued by
+            type: string
+          - name: year
+            label: Year
+            type: string
+          - name: url
+            label: Credential link (optional)
+            type: string
 
   # ---------------------------------------------------------------- Projects
   - name: projects
