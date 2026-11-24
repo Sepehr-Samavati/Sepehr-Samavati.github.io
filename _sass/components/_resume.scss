@@ -1,0 +1,232 @@
+/* Resume page (resume.md + _data/resume.yml) */
+
+	.resume {
+
+		.resume-muted {
+			color: _palette(fg-middle);
+			font-weight: _font(weight);
+		}
+
+		.resume-label {
+			color: _palette(accent1);
+			display: block;
+			font-size: 0.7em;
+			font-weight: _font(weight-bold);
+			letter-spacing: _font(letter-spacing-alt);
+			margin-bottom: 0.25em;
+			text-transform: uppercase;
+		}
+
+		// "Currently" highlight
+		.resume-current {
+			background: _palette(bg-alt);
+			border-left: 3px solid _palette(accent1);
+			border-radius: 4px;
+			margin: 0 0 1.5em 0;
+			padding: 1em 1.5em;
+
+			p { margin: 0; }
+			a { border-bottom-color: _palette(accent1); }
+		}
+
+		.resume-actions {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 0.75em;
+			margin-bottom: 1.5em;
+
+			li { margin: 0; padding: 0; }
+		}
+
+		// Section shortcuts
+		.resume-nav {
+			border-bottom: solid 1px _palette(border);
+			border-top: solid 1px _palette(border);
+			display: flex;
+			flex-wrap: wrap;
+			gap: 0.25em 2em;
+			margin: 0 0 3em 0;
+			padding: 0.9em 0;
+
+			a {
+				border-bottom: 0;
+				color: _palette(fg-middle);
+				font-size: 0.75em;
+				font-weight: _font(weight-bold);
+				letter-spacing: _font(letter-spacing-alt);
+				text-transform: uppercase;
+
+				&:hover { color: _palette(accent1); }
+			}
+		}
+
+		.resume-section {
+			margin-bottom: 3.5em;
+			scroll-margin-top: 4em;   // keep headings clear of the fixed header when jumping
+
+			> h2 {
+				font-size: 1.5em;
+				margin-bottom: 1.25em;
+			}
+		}
+
+		// Vertical timeline
+		.timeline {
+			border-left: 2px solid _palette(border);
+			list-style: none;
+			margin: 0 0 0 0.45em;
+			padding: 0 0 0 2em;
+		}
+
+		.timeline-item {
+			margin: 0 0 2.5em 0;
+			padding: 0;
+			position: relative;
+
+			&:last-child { margin-bottom: 0; }
+
+			// Dot on the line
+			&:before {
+				background: _palette(bg);
+				border: 2px solid _palette(accent1);
+				border-radius: 50%;
+				content: '';
+				height: 0.9em;
+				left: calc(-2em - 0.45em - 1px);
+				position: absolute;
+				top: 0.45em;
+				width: 0.9em;
+			}
+
+			&.is-current:before {
+				background: _palette(accent1);
+				box-shadow: 0 0 0 5px transparentize(_palette(accent1), 0.8);
+			}
+		}
+
+		.timeline-title {
+			font-size: 1.25em;
+			line-height: 1.4;
+			margin: 0 0 0.75em 0;
+
+			a { border-bottom: 0; }
+			a:hover { color: _palette(accent1); }
+		}
+
+		.role {
+			margin: 0 0 1.5em 0;
+
+			&:last-child { margin-bottom: 0; }
+
+			// A second role at the same company: small connector line above it
+			& + .role {
+				border-top: dashed 1px _palette(border);
+				padding-top: 1.25em;
+			}
+
+			h4 {
+				font-size: 1em;
+				line-height: 1.4;
+				margin: 0;
+			}
+
+			.role-dates {
+				color: _palette(fg-middle);
+				font-size: 0.85em;
+				margin: 0 0 0.75em 0;
+			}
+
+			p, ul:not(.chips) {
+				margin-bottom: 0.75em;
+			}
+
+			ul:not(.chips) li {
+				padding-left: 0.25em;
+			}
+		}
+
+		// Small outlined tags (skills)
+		.chips {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 0.4em;
+			list-style: none;
+			margin: 0.5em 0 0 0;
+			padding: 0;
+
+			li {
+				border: solid 1px _palette(border);
+				border-radius: 2em;
+				color: _palette(fg);
+				font-size: 0.75em;
+				line-height: 1;
+				padding: 0.5em 0.9em;
+			}
+		}
+
+		.skill-groups {
+			display: grid;
+			gap: 1.25em;
+			grid-template-columns: repeat(auto-fit, minmax(16em, 1fr));
+		}
+
+		.skill-group {
+			background: _palette(bg-alt);
+			border-radius: 4px;
+			padding: 1.25em 1.5em;
+
+			h3 {
+				color: _palette(accent1);
+				font-size: 0.75em;
+				letter-spacing: _font(letter-spacing-alt);
+				margin: 0 0 0.75em 0;
+				text-transform: uppercase;
+			}
+
+			.chips li { border-color: rgba(212, 212, 255, 0.2); }
+		}
+
+		.publications {
+			list-style: none;
+			margin: 0 0 1em 0;
+			padding: 0;
+
+			li {
+				border-left: 2px solid _palette(border);
+				margin: 0 0 1.25em 0;
+				padding: 0 0 0 1.25em;
+
+				p { margin: 0; line-height: 1.5; }
+				.resume-muted { font-size: 0.85em; }
+			}
+
+			.publication-title {
+				font-weight: _font(weight-bold);
+				a { border-bottom: 0; }
+				a:hover { color: _palette(accent1); }
+			}
+		}
+
+		// Certificates: one compact line each
+		.certificates {
+			list-style: none;
+			margin: 0;
+			padding: 0;
+
+			li {
+				border-bottom: solid 1px _palette(border);
+				align-items: baseline;
+				display: flex;
+				flex-wrap: wrap;
+				gap: 0.25em 1em;
+				justify-content: space-between;
+				padding: 0.6em 0;
+
+				&:last-child { border-bottom: 0; }
+			}
+
+			a { border-bottom: 0; }
+			a:hover { color: _palette(accent1); }
+			.resume-muted { font-size: 0.85em; }
+		}
+	}

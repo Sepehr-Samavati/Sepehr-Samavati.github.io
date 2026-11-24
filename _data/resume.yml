@@ -1,12 +1,20 @@
 # Content of the Resume page (/resume/). Edit through Pages CMS or by hand.
 # Entries are shown in the order they appear here (put the newest first).
+#
+# Current role: add it at the top of `experience` with an empty `end`; it is
+# then highlighted as "Currently" at the top of the page.
+# Consecutive roles at the same company are grouped under one company name.
+
+# Downloadable CV (PDF). Replace the file, or point this to another one.
+cv_file: /assets/files/Sepehr-Samavati-CV.pdf
 
 experience:
   - title: Software Engineer
     company: HCLTech
     company_url: https://www.hcltech.com/
     start: Jan 2024
-    end: Dec 2024          # leave empty for "Present"
+    end: Dec 2024          # leave empty for "Present" (current role)
+    location:              # optional, e.g. Milan, Italy
     summary:               # optional paragraph
     bullets:
       - Collaborated on a team for an Ericsson project to develop and customize the Linux OS for modem boards, involving Linux kernel programming and driver modification.
@@ -83,3 +91,19 @@ skills:
       - English
       - Persian
       - Italian
+
+# Recent publications (newest first). Leave the list empty to hide the section.
+# The Google Scholar link comes from `Google-Scholar` under `socials` in _config.yml.
+publications: []
+#  - title: Paper title
+#    authors: S. Samavati, A. Coauthor
+#    venue: Conference or journal name
+#    year: "2022"
+#    url: https://doi.org/...
+
+# Certificates (newest first). Leave the list empty to hide the section.
+certificates: []
+#  - name: Certificate name
+#    issuer: Organization
+#    year: "2024"
+#    url: https://link-to-credential
