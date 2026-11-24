@@ -262,6 +262,36 @@ content:
           - name: url
             label: Credential link (optional)
             type: string
+      - name: recommendations
+        label: Recommendations
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{name}"
+        fields:
+          - name: quote
+            label: Quote
+            type: text
+            required: true
+          - name: name
+            label: Name
+            type: string
+            required: true
+          - name: role
+            label: Their role (e.g. Senior Engineer at Company)
+            type: string
+          - name: relation
+            label: How you know each other (optional)
+            type: string
+          - name: photo
+            label: Photo (optional)
+            type: image
+            options:
+              media: images
+          - name: url
+            label: LinkedIn profile (optional)
+            type: string
 
   # ---------------------------------------------------------------- Projects
   - name: projects

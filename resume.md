@@ -18,6 +18,7 @@ nav_order: 2
 {% assign linkedin = site.socials.LinkedIn | default: false %}
 {% assign has_publications = false %}{% if resume.publications and resume.publications.size > 0 %}{% assign has_publications = true %}{% endif %}
 {% assign has_certificates = false %}{% if resume.certificates and resume.certificates.size > 0 %}{% assign has_certificates = true %}{% endif %}
+{% assign has_recommendations = false %}{% if resume.recommendations and resume.recommendations.size > 0 %}{% assign has_recommendations = true %}{% endif %}
 
 <!-- Main -->
 <div id="main" class="alt">
@@ -51,6 +52,7 @@ nav_order: 2
 			<a href="#skills">Skills</a>
 			{% if has_publications %}<a href="#publications">Publications</a>{% endif %}
 			{% if has_certificates %}<a href="#certificates">Certificates</a>{% endif %}
+			{% if has_recommendations %}<a href="#recommendations">Recommendations</a>{% endif %}
 		</nav>
 
 		<!-- Experience: timeline, consecutive roles at the same company are grouped -->
@@ -155,6 +157,31 @@ nav_order: 2
 				</li>
 			{% endfor %}
 			</ul>
+		</section>
+		{% endif %}
+
+		{% if has_recommendations %}
+		<!-- Recommendations -->
+		<section id="recommendations" class="resume-section">
+			<h2>What people say</h2>
+			<div class="recommendations">
+			{% for rec in resume.recommendations %}
+				{% assign rec_url = rec.url | default: false %}
+				{% assign rec_photo = rec.photo | default: false %}
+				{% assign rec_relation = rec.relation | default: false %}
+				<figure class="recommendation">
+					<blockquote>{{ rec.quote | markdownify }}</blockquote>
+					<figcaption>
+						{% if rec_photo %}<img src="{{ rec_photo | relative_url }}" alt="" loading="lazy" />{% endif %}
+						<div>
+							<strong>{% if rec_url %}<a href="{{ rec_url }}" target="_blank" rel="noopener noreferrer">{{ rec.name }}</a>{% else %}{{ rec.name }}{% endif %}</strong>
+							{% if rec.role %}<span class="resume-muted">{{ rec.role }}</span>{% endif %}
+							{% if rec_relation %}<span class="resume-muted recommendation-relation">{{ rec_relation }}</span>{% endif %}
+						</div>
+					</figcaption>
+				</figure>
+			{% endfor %}
+			</div>
 		</section>
 		{% endif %}
 	</div>

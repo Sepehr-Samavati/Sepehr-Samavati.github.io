@@ -107,3 +107,13 @@ certificates: []
 #    issuer: Organization
 #    year: "2024"
 #    url: https://link-to-credential
+
+# Recommendations, e.g. copied from LinkedIn (ask the person first).
+# Leave the list empty to hide the section.
+recommendations: []
+#  - quote: "Sepehr is ..."
+#    name: Full Name
+#    role: Senior Engineer at Company
+#    relation: Managed Sepehr directly        # optional
+#    photo: /assets/images/people/name.jpg    # optional, square works best
+#    url: https://www.linkedin.com/in/...     # optional
