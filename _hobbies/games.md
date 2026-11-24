@@ -5,7 +5,7 @@ image_alt: Games
 image_height: 400
 order: 3
 # Dota 2 account ID (the number in your OpenDota/Dotabuff profile URL); shows rank and top heroes
-dota_account_id:
+dota_account_id: "213265559"
 ---
 
 I love playing video games, both solo and with friends. My main game is Dota 2, which I enjoy for its strategy and teamwork. Besides video games, I’m a big fan of board games and enjoy game nights with friends, whether it’s casual fun or a more strategic challenge.
