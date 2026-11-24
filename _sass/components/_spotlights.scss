@@ -125,3 +125,23 @@
 		font-style: italic;
 		margin-top: -1em;
 	}
+
+/* Entries without an image use the full width (no empty image area) */
+
+	.spotlights > section.no-image {
+		> .content {
+			width: 100% !important;
+
+			> .inner {
+				margin: 0 auto;
+				max-width: _size(inner);
+				padding-left: 0 !important;
+				padding-right: 0 !important;
+				width: calc(100% - 6em);
+
+				@include breakpoint(small) {
+					width: calc(100% - 3em);
+				}
+			}
+		}
+	}
