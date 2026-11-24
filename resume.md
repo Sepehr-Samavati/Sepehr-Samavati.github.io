@@ -1,5 +1,5 @@
 ---
-description: "Resume of Sepehr Samavati: embedded software engineer (C++, Linux kernel, Yocto) with a master’s in Automation and Control Engineering from Politecnico di Milano."
+description: "Resume of Sepehr Samavati: robotics PhD student at Queen’s University and embedded software engineer (C++, embedded Linux, robotics) with experience at STIGA and HCLTech/Ericsson."
 permalink: /resume/
 redirect_from: "/B-Resume.html"
 layout: page
@@ -18,6 +18,7 @@ nav_order: 2
 {% assign linkedin = site.socials.LinkedIn | default: false %}
 {% assign has_publications = false %}{% if resume.publications and resume.publications.size > 0 %}{% assign has_publications = true %}{% endif %}
 {% assign has_certificates = false %}{% if resume.certificates and resume.certificates.size > 0 %}{% assign has_certificates = true %}{% endif %}
+{% assign has_awards = false %}{% if resume.awards and resume.awards.size > 0 %}{% assign has_awards = true %}{% endif %}
 {% assign has_recommendations = false %}{% if resume.recommendations and resume.recommendations.size > 0 %}{% assign has_recommendations = true %}{% endif %}
 
 <!-- Main -->
@@ -28,17 +29,22 @@ nav_order: 2
 			<h1>{{ page.title }}</h1>
 		</header>
 
-		<!-- Current role: the first job without an end date -->
-		{% for job in resume.experience %}
-			{% assign job_end = job.end | default: false %}
-			{% unless job_end %}
-			<div class="resume-current">
-				<span class="resume-label">Currently</span>
-				<p><strong>{{ job.title }}</strong> at {% if job.company_url %}<a href="{{ job.company_url }}" target="_blank" rel="noopener noreferrer">{{ job.company }}</a>{% else %}{{ job.company }}{% endif %}{% if job.start %} <span class="resume-muted">· since {{ job.start }}</span>{% endif %}</p>
-			</div>
-			{% break %}
-			{% endunless %}
-		{% endfor %}
+		<!-- Currently: every education or job entry without an end date -->
+		{% assign current_items = "" | split: "" %}
+		{% for edu in resume.education %}{% assign e_end = edu.end | default: false %}{% unless e_end %}{% assign current_items = current_items | push: edu %}{% endunless %}{% endfor %}
+		{% for job in resume.experience %}{% assign j_end = job.end | default: false %}{% unless j_end %}{% assign current_items = current_items | push: job %}{% endunless %}{% endfor %}
+		{% if current_items.size > 0 %}
+		<div class="resume-current">
+			<span class="resume-label">Currently</span>
+			{% for item in current_items %}
+				{% assign c_url = item.school_url | default: item.company_url | default: false %}
+				{% assign c_org = item.school | default: item.company %}
+				{% assign c_what = item.degree | default: item.title %}
+				{% assign c_desc = item.description | default: false %}
+				<p><strong>{{ c_what }}</strong> at {% if c_url %}<a href="{{ c_url }}" target="_blank" rel="noopener noreferrer">{{ c_org }}</a>{% else %}{{ c_org }}{% endif %}{% if item.start %} <span class="resume-muted">· since {{ item.start }}</span>{% endif %}{% if c_desc %}<br /><span class="resume-muted">{{ c_desc }}</span>{% endif %}</p>
+			{% endfor %}
+		</div>
+		{% endif %}
 
 		<ul class="actions resume-actions">
 			{% if cv %}<li><a href="{{ cv | relative_url }}" class="button special icon fa-download" download>Download CV</a></li>{% endif %}
@@ -52,6 +58,7 @@ nav_order: 2
 			<a href="#skills">Skills</a>
 			{% if has_publications %}<a href="#publications">Publications</a>{% endif %}
 			{% if has_certificates %}<a href="#certificates">Certificates</a>{% endif %}
+			{% if has_awards %}<a href="#awards">Awards</a>{% endif %}
 			{% if has_recommendations %}<a href="#recommendations">Recommendations</a>{% endif %}
 		</nav>
 
@@ -69,9 +76,10 @@ nav_order: 2
 				{% assign company_url = job.company_url | default: false %}
 				{% assign summary = job.summary | default: false %}
 				{% assign location = job.location | default: false %}
+				{% assign employer = job.employer | default: false %}
 				{% if group_start %}
 				<li class="timeline-item{% unless job_end %} is-current{% endunless %}">
-					<h3 class="timeline-title">{% if company_url %}<a href="{{ company_url }}" target="_blank" rel="noopener noreferrer">{{ job.company }}</a>{% else %}{{ job.company }}{% endif %}{% if location %} <span class="resume-muted">· {{ location }}</span>{% endif %}</h3>
+					<h3 class="timeline-title">{% if company_url %}<a href="{{ company_url }}" target="_blank" rel="noopener noreferrer">{{ job.company }}</a>{% else %}{{ job.company }}{% endif %}{% if employer %} <span class="resume-muted">· via {{ employer }}</span>{% endif %}{% if location %} <span class="resume-muted">· {{ location }}</span>{% endif %}</h3>
 				{% endif %}
 					<div class="role">
 						<h4>{{ job.title }}</h4>
@@ -101,11 +109,13 @@ nav_order: 2
 			{% for edu in resume.education %}
 				{% assign school_url = edu.school_url | default: false %}
 				{% assign edu_description = edu.description | default: false %}
-				<li class="timeline-item">
-					<h3 class="timeline-title">{% if school_url %}<a href="{{ school_url }}" target="_blank" rel="noopener noreferrer">{{ edu.school }}</a>{% else %}{{ edu.school }}{% endif %}</h3>
+				{% assign edu_end = edu.end | default: false %}
+				{% assign edu_location = edu.location | default: false %}
+				<li class="timeline-item{% unless edu_end %} is-current{% endunless %}">
+					<h3 class="timeline-title">{% if school_url %}<a href="{{ school_url }}" target="_blank" rel="noopener noreferrer">{{ edu.school }}</a>{% else %}{{ edu.school }}{% endif %}{% if edu_location %} <span class="resume-muted">· {{ edu_location }}</span>{% endif %}</h3>
 					<div class="role">
 						<h4>{{ edu.degree }}</h4>
-						<p class="role-dates">{{ edu.start }} – {{ edu.end | default: "Present" }}</p>
+						<p class="role-dates">{{ edu.start }} – {{ edu_end | default: "Present" }}</p>
 						{% if edu_description %}<p>{{ edu_description }}</p>{% endif %}
 					</div>
 				</li>
@@ -154,6 +164,22 @@ nav_order: 2
 				<li>
 					<span>{% if cert_url %}<a href="{{ cert_url }}" target="_blank" rel="noopener noreferrer">{{ cert.name }}</a>{% else %}{{ cert.name }}{% endif %}</span>
 					<span class="resume-muted">{{ cert.issuer }}{% if cert.issuer and cert.year %} · {% endif %}{{ cert.year }}</span>
+				</li>
+			{% endfor %}
+			</ul>
+		</section>
+		{% endif %}
+
+		{% if has_awards %}
+		<!-- Honors and awards (same minimal style as certificates) -->
+		<section id="awards" class="resume-section">
+			<h2>Honors &amp; awards</h2>
+			<ul class="certificates">
+			{% for award in resume.awards %}
+				{% assign award_url = award.url | default: false %}
+				<li>
+					<span>{% if award_url %}<a href="{{ award_url }}" target="_blank" rel="noopener noreferrer">{{ award.name }}</a>{% else %}{{ award.name }}{% endif %}</span>
+					<span class="resume-muted">{{ award.issuer }}{% if award.issuer and award.year %} · {% endif %}{{ award.year }}</span>
 				</li>
 			{% endfor %}
 			</ul>

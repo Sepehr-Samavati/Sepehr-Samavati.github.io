@@ -1,21 +1,35 @@
 # Content of the Resume page (/resume/). Edit through Pages CMS or by hand.
 # Entries are shown in the order they appear here (put the newest first).
 #
-# Current role: add it at the top of `experience` with an empty `end`; it is
-# then highlighted as "Currently" at the top of the page.
+# "Currently": every job or education entry with an empty `end` is
+# highlighted at the top of the page.
 # Consecutive roles at the same company are grouped under one company name.
 
 # Downloadable CV (PDF). Replace the file, or point this to another one.
 cv_file: /assets/files/Sepehr-Samavati-CV.pdf
 
 experience:
+  - title: Firmware Engineer
+    company: STIGA
+    company_url: https://www.stiga.com/
+    start: Jun 2025
+    end: Sep 2026          # leave empty for "Present" (current role)
+    location: Castelfranco Veneto, Italy
+    employer:              # optional, e.g. the consulting company that employed you
+    summary:               # optional paragraph
+    bullets:
+      - Developed software for autonomous mowing robots, focusing on behavioral logic, sensor integration, inter-module communication, and overall system control.
+      - Contributed to customizing and maintaining embedded Linux for new hardware platforms.
+    skills: [Embedded Software, Robotics, Embedded Linux, Sensor Integration, C++]
+
   - title: Software Engineer
     company: HCLTech
     company_url: https://www.hcltech.com/
     start: Jan 2024
-    end: Dec 2024          # leave empty for "Present" (current role)
-    location:              # optional, e.g. Milan, Italy
-    summary:               # optional paragraph
+    end: Dec 2024
+    location: Milan, Italy · Hybrid
+    employer: Experis
+    summary:
     bullets:
       - Collaborated on a team for an Ericsson project to develop and customize the Linux OS for modem boards, involving Linux kernel programming and driver modification.
       - Used Bitbake and Yocto to streamline build automation and create tailored Linux distributions for embedded systems.
@@ -27,6 +41,8 @@ experience:
     company_url: https://www.hcltech.com/
     start: Aug 2022
     end: Dec 2023
+    location: Milan, Italy · Hybrid
+    employer: Experis
     summary:
     bullets:
       - Worked at HCL as part of a dedicated team focused on software development for Ericsson's modems and radios.
@@ -40,14 +56,36 @@ experience:
     company_url: https://7sangteam.ir/
     start: Jan 2022
     end: Oct 2022
+    location:
+    employer:
     summary: Implemented statistical methods and software to analyze employee engagement.
     bullets: []
     skills: [Python (Programming Language), SciPy, Seaborn, Statistical Data Analysis]
 
+  - title: Teaching Assistant
+    company: University of Tehran
+    company_url: https://ut.ac.ir
+    start: Sep 2020
+    end: Feb 2022
+    location:
+    employer:
+    summary: Teaching assistant for the course “Communication Skills and Crucial Competence”.
+    bullets: []
+    skills: [Communication, Management]
+
 education:
+  - degree: Ph.D., Electrical and Computer Engineering
+    school: Queen’s University
+    school_url: https://www.queensu.ca/
+    location: Kingston, Canada
+    start: Sep 2026
+    end:                   # empty = in progress (shown as "Currently")
+    description: Research focus on robotics.
+
   - degree: Master’s Degree, Automation and Control Engineering
     school: Politecnico di Milano
     school_url: https://www.polimi.it/
+    location: Milan, Italy
     start: "2019"
     end: "2022"
     description:
@@ -55,9 +93,10 @@ education:
   - degree: Bachelor’s Degree, Electrical Engineering
     school: University of Tehran
     school_url: https://ut.ac.ir
+    location: Tehran, Iran
     start: "2013"
     end: "2017"
-    description:
+    description: "Activities: Student Council President, IEEE Student Member."
 
 skills:
   - category: Technical Skills
@@ -65,55 +104,119 @@ skills:
       - C/C++
       - Python
       - Algorithms
-      - Statistical Data Analysis
-      - Object-Oriented Programming
-      - Design Patterns
+      - Robotics
       - Embedded Systems
+      - Embedded Linux
       - Linux Kernel Development
       - Yocto/Bitbake
-      - SQL/SQLite
       - U-Boot
+      - Object-Oriented Programming
+      - Design Patterns
+      - Statistical Data Analysis
+      - SQL/SQLite
       - Machine Learning
       - Kotlin
       - Java
   - category: Soft Skills
     items:
-      - Communication
       - Leadership
+      - Communication
       - Problem-Solving
       - Team Collaboration
-      - Social Responsibility
       - Project Management
+      - Social Responsibility
       - Flexibility
       - Crisis Management
   - category: Languages
     items:
-      - English
-      - Persian
-      - Italian
+      - Persian · Native
+      - English · Professional working
+      - Italian · Limited working
 
 # Recent publications (newest first). Leave the list empty to hide the section.
 # The Google Scholar link comes from `Google-Scholar` under `socials` in _config.yml.
-publications: []
-#  - title: Paper title
-#    authors: S. Samavati, A. Coauthor
-#    venue: Conference or journal name
-#    year: "2022"
-#    url: https://doi.org/...
+publications:
+  - title: Delay Estimation for Shared Rides From GPS Data
+    authors: S. Samavati, A. Nemirovskiy, M. Rossi
+    venue: 2022 IEEE 25th International Conference on Intelligent Transportation Systems (ITSC)
+    year: "2022"
+    url: https://doi.org/10.1109/ITSC55140.2022.9922316
+  - title: An optimal motion planning and obstacle avoidance algorithm based on the finite time velocity obstacle approach
+    authors:
+    venue: IEEE
+    year: "2017"
+    url:
 
 # Certificates (newest first). Leave the list empty to hide the section.
-certificates: []
-#  - name: Certificate name
-#    issuer: Organization
-#    year: "2024"
-#    url: https://link-to-credential
+certificates:
+  - name: AWS Essential Training for Developers
+    issuer: LinkedIn Learning
+    year: "2021"
+    url:
+  - name: Learn CSS Course
+    issuer: Codecademy
+    year: "2019"
+    url:
 
-# Recommendations, e.g. copied from LinkedIn (ask the person first).
-# Leave the list empty to hide the section.
-recommendations: []
-#  - quote: "Sepehr is ..."
-#    name: Full Name
-#    role: Senior Engineer at Company
-#    relation: Managed Sepehr directly        # optional
-#    photo: /assets/images/people/name.jpg    # optional, square works best
-#    url: https://www.linkedin.com/in/...     # optional
+# Honors and awards (newest first). Leave the list empty to hide the section.
+awards:
+  - name: IEEEXtreme Programming Competition 11.0, 48th place (2nd in the country)
+    issuer: IEEE
+    year: "2017"
+    url:
+
+# Recommendations (from LinkedIn). Leave the list empty to hide the section.
+recommendations:
+  - quote: |
+      I had the pleasure and the honor to work with Sepehr @Stiga.
+      During the time spent together, he showed some great capabilities which are not often found on a single professional: He is the typical T-Shaped profile: A deep, solid and broad Technical knowledge on SW Embedded development, with great understanding of the HW context, enabling him to develop, high performing, scalable solutions. This combined with a strong Architectural vision, capable to connect functional need with ad hoc FW solutions.
+
+      He has also strong process oriented mindset, e.g. he introduced concept like Unit Testing, disciplined pull request etc.
+      Capability to listen stakeholders and transform not-well-defined need, into actionable design.
+      All and more than this, combined with effective communication capabilities, for Top-Down and Bottom-up communication.
+
+      In his future he can for sure cover the SW architect Role or the Technical team lead for team that need a competent, solid and servant Leadership.
+
+      May the wind be always at your back!
+    name: Giuseppe Trovato
+    role: New Product Development, Sr R&D Manager
+    relation: Managed Sepehr directly at STIGA
+    photo:
+    url:
+
+  - quote: I really enjoyed working with him and appreciated both his strong technical knowledge of embedded systems and robotics and his approach to teamwork. What stands out to me is his ability to challenge the status quo and motivate the people around him to aim for higher standards. He combines solid engineering skills with a genuine drive to improve things, making him not only a great colleague but also someone who can have a positive impact on the whole team. I’d be happy to work with him again and would definitely recommend him.
+    name: Matteo Tosetto
+    role: Firmware Engineer at STIGA
+    relation: Worked with Sepehr on the same team
+    photo:
+    url:
+
+  - quote: |
+      I had the pleasure of working with Sepehr as part of my team at STIGA, where he consistently demonstrated strong commitment, curiosity, and a clear focus on achieving results.
+
+      Beyond his technical skills, Sepehr took a proactive approach to improving the way we worked as a team. He introduced new best practices, encouraged open technical discussions, and helped foster a culture of continuous improvement.
+
+      He has a solid technical background in embedded systems and Linux development, ranging from I/O management, modules, and device drivers to Linux kernel development.
+
+      Sepehr combines strong technical skills and versatility with a collaborative attitude and a genuine drive to learn, improve, and get things done. I would be happy to work with him again and highly recommend him.
+    name: Michele Scapin
+    role: Chief Engineering Director | Executive MBA POLIMI GSoM
+    relation: Managed Sepehr directly at STIGA
+    photo:
+    url:
+
+  - quote: I had the chance to work directly with Sepehr on a project at STIGA, and what stood out most was his technical problem-solving ability, especially on Linux, where he clearly knew his way around. He was also incredibly patient (saint-level patience, honestly) and reviewed every one of my pull requests with a level of accuracy that occasionally made me question my own code. He was a great teammate to have on board, and I'm confident he'll bring the same value to whatever he takes on next.
+    name: Sharareh Tahmasebi
+    role: AI Engineer | Computer Vision & Edge AI | Embedded C++ | Robotics
+    relation: Worked with Sepehr on the same team at STIGA
+    photo:
+    url:
+
+  - quote: |
+      Sepehr is one of the most talented young engineers I’ve ever met. It is a pleasure to work daily with him. He’s showing a maturity beyond any expectations.
+      He’s passionate, a tireless worker, able to take difficult tasks with responsibility and commitment. He shares progress and thoughts, and he has a strong technical leadership. He’s very good in designing complex software and finding architectural solutions. Among the knowledge of others language, he has a proficient level of C++. He is a very appreciated team member, able to work in a cross functional team using agile methodologies. He can speak fluent English and some Italian on top of his native language.
+    name: Alessandro Cinquini
+    role: Line Manager at Ericsson AB
+    relation: Sepehr’s mentor (2023)
+    photo:
+    url:

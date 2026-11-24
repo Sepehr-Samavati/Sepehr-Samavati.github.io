@@ -163,6 +163,9 @@ content:
           - name: location
             label: Location (optional, e.g. Milan, Italy)
             type: string
+          - name: employer
+            label: Employed via (optional, e.g. a consulting company)
+            type: string
           - name: summary
             label: Summary paragraph (optional)
             type: text
@@ -192,11 +195,14 @@ content:
           - name: school_url
             label: School website
             type: string
+          - name: location
+            label: Location (optional)
+            type: string
           - name: start
             label: Start year
             type: string
           - name: end
-            label: End year (empty = Present)
+            label: End year (empty = in progress, shown as "Currently")
             type: string
           - name: description
             label: Description (optional)
@@ -261,6 +267,27 @@ content:
             type: string
           - name: url
             label: Credential link (optional)
+            type: string
+      - name: awards
+        label: Honors and awards (newest first)
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{name}"
+        fields:
+          - name: name
+            label: Award
+            type: string
+            required: true
+          - name: issuer
+            label: Given by
+            type: string
+          - name: year
+            label: Year
+            type: string
+          - name: url
+            label: Link (optional)
             type: string
       - name: recommendations
         label: Recommendations
@@ -411,10 +438,13 @@ content:
         type: string
         required: true
       - name: date
-        label: Date (newest shown first)
+        label: Start date (newest shown first)
         type: date
         options:
           format: yyyy-MM-dd
+      - name: end
+        label: End (optional text, e.g. "June 2017" or "Present")
+        type: string
       - name: image
         label: Image
         type: image
@@ -462,7 +492,7 @@ content:
         label: Category (sets the color)
         type: select
         options:
-          values: [education, work, project, life]
+          values: [education, work, research, leadership, project, award]
       - name: text
         label: Short text (optional)
         type: text
