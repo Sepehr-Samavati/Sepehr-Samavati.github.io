@@ -186,116 +186,294 @@
 			.chips li { border-color: rgba(212, 212, 255, 0.2); }
 		}
 
+		// Publications: year column + details + small link pills
 		.publications {
 			list-style: none;
-			margin: 0 0 1em 0;
+			margin: 0 0 1.25em 0;
 			padding: 0;
 
-			li {
-				border-left: 2px solid _palette(border);
-				margin: 0 0 1.25em 0;
-				padding: 0 0 0 1.25em;
-
-				p { margin: 0; line-height: 1.5; }
-				.resume-muted { font-size: 0.85em; }
-			}
-
-			.publication-title {
-				font-weight: _font(weight-bold);
-				a { border-bottom: 0; }
-				a:hover { color: _palette(accent1); }
-			}
-		}
-
-		// Certificates: one compact line each
-		.certificates {
-			list-style: none;
-			margin: 0;
-			padding: 0;
-
-			li {
+			> li {
 				border-bottom: solid 1px _palette(border);
-				align-items: baseline;
-				display: flex;
-				flex-wrap: wrap;
-				gap: 0.25em 1em;
-				justify-content: space-between;
-				padding: 0.6em 0;
+				display: grid;
+				gap: 0 1.5em;
+				grid-template-columns: 3.5em 1fr;
+				padding: 1.25em 0;
 
+				&:first-child { padding-top: 0; }
 				&:last-child { border-bottom: 0; }
 			}
 
-			a { border-bottom: 0; }
-			a:hover { color: _palette(accent1); }
-			.resume-muted { font-size: 0.85em; }
-		}
-	
-		// Recommendations: quote cards
-		.recommendations {
-			display: grid;
-			gap: 1.5em;
-			grid-template-columns: repeat(auto-fit, minmax(26em, 1fr));
+			.pub-year {
+				color: _palette(accent1);
+				font-size: 0.9em;
+				font-weight: _font(weight-bold);
+				padding-top: 0.15em;
+			}
+
+			p { line-height: 1.5; margin: 0; }
+
+			.pub-type {
+				color: _palette(fg-middle);
+				display: block;
+				font-size: 0.65em;
+				font-weight: _font(weight-bold);
+				letter-spacing: _font(letter-spacing-alt);
+				margin-bottom: 0.2em;
+				text-transform: uppercase;
+			}
+
+			.publication-title {
+				font-size: 1.05em;
+				font-weight: _font(weight-bold);
+				margin-bottom: 0.3em;
+
+				a { border-bottom: 0; }
+				a:hover { color: _palette(accent1); }
+			}
+
+			.pub-authors {
+				color: _palette(fg-middle);
+				font-size: 0.85em;
+				strong { color: _palette(fg); }
+			}
+
+			.pub-venue {
+				color: _palette(fg-middle);
+				font-size: 0.85em;
+			}
+
+			.pub-links {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 0.5em;
+				margin-top: 0.7em;
+
+				&:empty { display: none; }
+
+				a {
+					border: solid 1px _palette(border);
+					border-radius: 2em;
+					font-size: 0.72em;
+					line-height: 1;
+					padding: 0.5em 0.9em;
+
+					&:hover { border-color: _palette(accent1); color: _palette(accent1); }
+				}
+			}
+
+			@include breakpoint(small) {
+				> li { grid-template-columns: 1fr; }
+				.pub-year { margin-bottom: 0.25em; }
+			}
 		}
 
-		.recommendation {
-			background: _palette(bg-alt);
-			border-radius: 4px;
-			display: flex;
-			flex-direction: column;
+		.pub-all a { border-bottom: 0; font-size: 0.9em; }
+		.pub-all a:hover { color: _palette(accent1); }
+
+		// Awards & certifications: small tiles with an icon
+		.honors {
+			display: grid;
+			gap: 1em;
+			grid-template-columns: repeat(auto-fit, minmax(18em, 1fr));
+			list-style: none;
 			margin: 0;
-			padding: 2em 1.75em 1.5em 1.75em;
+			padding: 0;
+
+			li {
+				align-items: center;
+				background: _palette(bg-alt);
+				border-radius: 6px;
+				display: flex;
+				gap: 1em;
+				padding: 1em 1.25em;
+			}
+
+			.honors-icon {
+				&:before {
+					align-items: center;
+					background: transparentize(_palette(accent1), 0.85);
+					border-radius: 50%;
+					color: _palette(accent1);
+					display: flex;
+					height: 2.4em;
+					justify-content: center;
+					width: 2.4em;
+				}
+			}
+
+			div { display: flex; flex-direction: column; line-height: 1.4; }
+			strong { font-size: 0.95em; }
+			strong a { border-bottom: 0; }
+			.resume-muted { font-size: 0.8em; }
+		}
+
+		// Recommendations: one quote at a time
+		.rec-carousel {
+			background: _palette(bg-alt);
+			border-radius: 8px;
+			padding: 2.5em 3em 1.75em 3em;
 			position: relative;
 
-			// Large opening quote mark
+			// Big decorative quote mark
 			&:before {
 				color: _palette(accent1);
 				content: '\201C';
 				font-family: Georgia, 'Times New Roman', serif;
-				font-size: 4.5em;
-				font-weight: 700;
-				left: 0.35em;
+				font-size: 5em;
+				left: 0.3em;
 				line-height: 1;
-				opacity: 0.5;
+				opacity: 0.35;
 				position: absolute;
-				top: 0.1em;
+				top: 0.05em;
 			}
+
+			@include breakpoint(small) {
+				padding: 2.25em 1.5em 1.5em 1.5em;
+			}
+		}
+
+		.rec-slide {
+			margin: 0 0 2em 0;
 
 			blockquote {
 				border-left: 0;
-				flex: 1;
 				font-style: normal;
 				margin: 0 0 1.25em 0;
-				padding: 0.5em 0 0 0;
-
-				p { margin: 0 0 0.75em 0; }
-				p:last-child { margin: 0; }
+				padding: 0;
 			}
+
+			.rec-highlight {
+				font-size: 1.2em;
+				font-weight: 500;
+				line-height: 1.55;
+				margin: 0 0 0.75em 0;
+			}
+
+			.rec-full p { margin: 0 0 0.75em 0; }
+			.rec-full p:last-child { margin-bottom: 0; }
+
+			.rec-more {
+				summary {
+					color: _palette(accent1);
+					cursor: pointer;
+					display: inline-block;
+					font-size: 0.8em;
+					font-weight: _font(weight-bold);
+					list-style: none;
+
+					&::-webkit-details-marker { display: none; }
+					&:after { content: ' \2193'; }
+				}
+
+				.rec-more-close { display: none; }
+
+				&[open] {
+					summary:after { content: ' \2191'; }
+					.rec-more-open { display: none; }
+					.rec-more-close { display: inline; }
+				}
+
+				.rec-full {
+					color: rgba(255, 255, 255, 0.85);
+					font-size: 0.95em;
+					margin-bottom: 0.75em;
+				}
+			}
+
+			// When the full text is open, it replaces the highlight
+			&:has(.rec-more[open]) .rec-highlight { display: none; }
+			&:has(.rec-more[open]) .rec-more { display: flex; flex-direction: column-reverse; }
 
 			figcaption {
 				align-items: center;
-				border-top: solid 1px _palette(border);
 				display: flex;
 				gap: 0.9em;
-				padding-top: 1em;
 
-				img {
+				img, .rec-avatar {
 					border-radius: 50%;
 					flex: 0 0 auto;
-					height: 3em;
-					object-fit: cover;
-					width: 3em;
+					height: 2.8em;
+					width: 2.8em;
 				}
 
-				div {
+				img { object-fit: cover; }
+
+				.rec-avatar {
+					align-items: center;
+					background: transparentize(_palette(accent1), 0.8);
+					color: _palette(accent1);
 					display: flex;
-					flex-direction: column;
-					line-height: 1.4;
+					font-size: 0.9em;
+					font-weight: _font(weight-bold);
+					justify-content: center;
+					letter-spacing: 0.05em;
 				}
 
+				div { display: flex; flex-direction: column; line-height: 1.4; }
 				strong a { border-bottom: 0; }
-				strong a:hover { color: _palette(accent1); }
-				.resume-muted { font-size: 0.85em; }
-				.recommendation-relation { font-style: italic; }
+				.resume-muted { font-size: 0.8em; }
+			}
+		}
+
+		// With JavaScript: stack slides, show only the active one
+		.rec-carousel.is-ready {
+			.rec-slides { display: grid; }
+			.rec-controls { display: flex; }
+
+			.rec-slide {
+				grid-area: 1 / 1;
+				margin: 0;
+				opacity: 0;
+				transition: opacity 0.45s ease, visibility 0.45s;
+				visibility: hidden;
+
+				&.is-active { opacity: 1; visibility: visible; }
+			}
+		}
+
+		.rec-controls {
+			align-items: center;
+			display: none;
+			gap: 1em;
+			justify-content: flex-end;
+			margin-top: 1.5em;
+
+			button {
+				background: transparent;
+				border: 0;
+				box-shadow: none;
+				color: _palette(fg);
+				cursor: pointer;
+				height: auto;
+				letter-spacing: 0;
+				line-height: 1;
+				padding: 0;
+			}
+
+			.rec-prev, .rec-next {
+				border: solid 1px _palette(border);
+				border-radius: 50%;
+				font-size: 1.3em;
+				height: 1.9em;
+				width: 1.9em;
+
+				&:hover { border-color: _palette(accent1); color: _palette(accent1); background: transparent; }
+			}
+		}
+
+		.rec-dots {
+			display: flex;
+			gap: 0.5em;
+
+			.rec-dot {
+				background: _palette(border);
+				border-radius: 1em;
+				height: 0.5em;
+				transition: width 0.3s ease, background 0.3s ease;
+				width: 0.5em;
+
+				&:hover { background: _palette(fg-middle); }
+				&.is-active { background: _palette(accent1); width: 1.6em; }
 			}
 		}
 	}

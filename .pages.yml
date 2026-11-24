@@ -241,11 +241,23 @@ content:
           - name: venue
             label: Conference / journal
             type: string
+          - name: pages
+            label: Pages (e.g. 250–255)
+            type: string
           - name: year
             label: Year
             type: string
-          - name: url
-            label: Link (DOI or PDF)
+          - name: type
+            label: Type (e.g. Conference paper, Journal article)
+            type: string
+          - name: scholar
+            label: Google Scholar link of the paper
+            type: string
+          - name: doi
+            label: DOI link (optional)
+            type: string
+          - name: pdf
+            label: PDF / open access link (optional)
             type: string
       - name: certificates
         label: Certificates (newest first)
@@ -297,8 +309,11 @@ content:
             collapsed: true
             summary: "{name}"
         fields:
+          - name: highlight
+            label: Highlight (1–2 key sentences shown first)
+            type: text
           - name: quote
-            label: Quote
+            label: Full recommendation
             type: text
             required: true
           - name: name
@@ -492,7 +507,7 @@ content:
         label: Category (sets the color)
         type: select
         options:
-          values: [education, work, research, leadership, project, award]
+          values: [education, work, research, volunteering, project, award]
       - name: text
         label: Short text (optional)
         type: text

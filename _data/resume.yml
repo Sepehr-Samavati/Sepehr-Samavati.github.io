@@ -15,7 +15,7 @@ experience:
     start: Jun 2025
     end: Sep 2026          # leave empty for "Present" (current role)
     location: Castelfranco Veneto, Italy
-    employer:              # optional, e.g. the consulting company that employed you
+    employer: Experis      # optional, e.g. the consulting company that employed you
     summary:               # optional paragraph
     bullets:
       - Developed software for autonomous mowing robots, focusing on behavioral logic, sensor integration, inter-module communication, and overall system control.
@@ -61,17 +61,6 @@ experience:
     summary: Implemented statistical methods and software to analyze employee engagement.
     bullets: []
     skills: [Python (Programming Language), SciPy, Seaborn, Statistical Data Analysis]
-
-  - title: Teaching Assistant
-    company: University of Tehran
-    company_url: https://ut.ac.ir
-    start: Sep 2020
-    end: Feb 2022
-    location:
-    employer:
-    summary: Teaching assistant for the course “Communication Skills and Crucial Competence”.
-    bullets: []
-    skills: [Communication, Management]
 
 education:
   - degree: Ph.D., Electrical and Computer Engineering
@@ -133,29 +122,35 @@ skills:
       - English · Professional working
       - Italian · Limited working
 
-# Recent publications (newest first). Leave the list empty to hide the section.
-# The Google Scholar link comes from `Google-Scholar` under `socials` in _config.yml.
+# Publications (newest first). Leave the list empty to hide the section.
+#   authors: your own name (S. Samavati) is highlighted automatically
+#   scholar: link to the paper on Google Scholar (the title links there)
+#   doi / pdf: optional extra links
 publications:
   - title: Delay Estimation for Shared Rides From GPS Data
     authors: S. Samavati, A. Nemirovskiy, M. Rossi
-    venue: 2022 IEEE 25th International Conference on Intelligent Transportation Systems (ITSC)
+    venue: 2022 IEEE 25th International Conference on Intelligent Transportation Systems (ITSC), Macau, China
+    pages: 2655–2662
     year: "2022"
-    url: https://doi.org/10.1109/ITSC55140.2022.9922316
+    type: Conference paper
+    scholar: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=plYZazIAAAAJ&citation_for_view=plYZazIAAAAJ:u-x6o8ySG0sC
+    doi: https://doi.org/10.1109/ITSC55140.2022.9922316
+    pdf: https://re.public.polimi.it/handle/11311/1223156
   - title: An optimal motion planning and obstacle avoidance algorithm based on the finite time velocity obstacle approach
-    authors:
-    venue: IEEE
+    authors: S. Samavati, M. Zarei, M. T. Masouleh
+    venue: 2017 Artificial Intelligence and Signal Processing Conference (AISP)
+    pages: 250–255
     year: "2017"
-    url:
+    type: Conference paper
+    scholar: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=plYZazIAAAAJ&citation_for_view=plYZazIAAAAJ:u5HHmVD_uO8C
+    doi:
+    pdf:
 
 # Certificates (newest first). Leave the list empty to hide the section.
 certificates:
   - name: AWS Essential Training for Developers
     issuer: LinkedIn Learning
     year: "2021"
-    url:
-  - name: Learn CSS Course
-    issuer: Codecademy
-    year: "2019"
     url:
 
 # Honors and awards (newest first). Leave the list empty to hide the section.
@@ -166,6 +161,7 @@ awards:
     url:
 
 # Recommendations (from LinkedIn). Leave the list empty to hide the section.
+#   highlight: one or two key sentences shown first; the full quote opens with "Read more"
 recommendations:
   - quote: |
       I had the pleasure and the honor to work with Sepehr @Stiga.
@@ -178,6 +174,7 @@ recommendations:
       In his future he can for sure cover the SW architect Role or the Technical team lead for team that need a competent, solid and servant Leadership.
 
       May the wind be always at your back!
+    highlight: "He is the typical T-Shaped profile: A deep, solid and broad Technical knowledge on SW Embedded development, with great understanding of the HW context."
     name: Giuseppe Trovato
     role: New Product Development, Sr R&D Manager
     relation: Managed Sepehr directly at STIGA
@@ -185,6 +182,7 @@ recommendations:
     url:
 
   - quote: I really enjoyed working with him and appreciated both his strong technical knowledge of embedded systems and robotics and his approach to teamwork. What stands out to me is his ability to challenge the status quo and motivate the people around him to aim for higher standards. He combines solid engineering skills with a genuine drive to improve things, making him not only a great colleague but also someone who can have a positive impact on the whole team. I’d be happy to work with him again and would definitely recommend him.
+    highlight: "What stands out to me is his ability to challenge the status quo and motivate the people around him to aim for higher standards."
     name: Matteo Tosetto
     role: Firmware Engineer at STIGA
     relation: Worked with Sepehr on the same team
@@ -199,6 +197,7 @@ recommendations:
       He has a solid technical background in embedded systems and Linux development, ranging from I/O management, modules, and device drivers to Linux kernel development.
 
       Sepehr combines strong technical skills and versatility with a collaborative attitude and a genuine drive to learn, improve, and get things done. I would be happy to work with him again and highly recommend him.
+    highlight: "Beyond his technical skills, Sepehr took a proactive approach to improving the way we worked as a team. He introduced new best practices, encouraged open technical discussions, and helped foster a culture of continuous improvement."
     name: Michele Scapin
     role: Chief Engineering Director | Executive MBA POLIMI GSoM
     relation: Managed Sepehr directly at STIGA
@@ -206,6 +205,7 @@ recommendations:
     url:
 
   - quote: I had the chance to work directly with Sepehr on a project at STIGA, and what stood out most was his technical problem-solving ability, especially on Linux, where he clearly knew his way around. He was also incredibly patient (saint-level patience, honestly) and reviewed every one of my pull requests with a level of accuracy that occasionally made me question my own code. He was a great teammate to have on board, and I'm confident he'll bring the same value to whatever he takes on next.
+    highlight: "He was also incredibly patient (saint-level patience, honestly) and reviewed every one of my pull requests with a level of accuracy that occasionally made me question my own code."
     name: Sharareh Tahmasebi
     role: AI Engineer | Computer Vision & Edge AI | Embedded C++ | Robotics
     relation: Worked with Sepehr on the same team at STIGA
@@ -215,6 +215,7 @@ recommendations:
   - quote: |
       Sepehr is one of the most talented young engineers I’ve ever met. It is a pleasure to work daily with him. He’s showing a maturity beyond any expectations.
       He’s passionate, a tireless worker, able to take difficult tasks with responsibility and commitment. He shares progress and thoughts, and he has a strong technical leadership. He’s very good in designing complex software and finding architectural solutions. Among the knowledge of others language, he has a proficient level of C++. He is a very appreciated team member, able to work in a cross functional team using agile methodologies. He can speak fluent English and some Italian on top of his native language.
+    highlight: "Sepehr is one of the most talented young engineers I’ve ever met. He’s showing a maturity beyond any expectations."
     name: Alessandro Cinquini
     role: Line Manager at Ericsson AB
     relation: Sepehr’s mentor (2023)
