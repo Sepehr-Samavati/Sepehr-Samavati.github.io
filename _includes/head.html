@@ -2,6 +2,12 @@
 	<title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<!-- Icons (browser tab, bookmarks, phone home screen). Source: assets/icons/ -->
+	<link rel="icon" href="{{ '/favicon.ico' | relative_url }}" sizes="48x48" />
+	<link rel="icon" href="{{ '/assets/icons/favicon-32x32.png' | relative_url }}" type="image/png" sizes="32x32" />
+	<link rel="apple-touch-icon" href="{{ '/assets/icons/apple-touch-icon.png' | relative_url }}" />
+	<link rel="manifest" href="{{ '/site.webmanifest' | relative_url }}" />
+	<meta name="theme-color" content="#242943" />
 	<link rel="stylesheet" href="{{ "assets/vendor/fontawesome/css/fontawesome.min.css" | relative_url }}" />
 	<link rel="stylesheet" href="{{ "assets/vendor/fontawesome/css/brands.min.css" | relative_url }}" />
 	<link rel="stylesheet" href="{{ "assets/vendor/fontawesome/css/v4-font-face.min.css" | relative_url }}" />
