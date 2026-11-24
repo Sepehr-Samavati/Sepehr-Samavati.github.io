@@ -101,6 +101,10 @@
 	<script src="{{ "assets/js/skel.min.js" | relative_url }}"></script>
 	<script src="{{ "assets/js/util.js" | relative_url }}"></script>
 	<script src="{{ "assets/js/main.js" | relative_url }}"></script>
+	{% if jekyll.environment == "production" and site.cloudflare_analytics_token %}
+	<!-- Cloudflare Web Analytics (cookie-free visitor statistics) -->
+	<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "{{ site.cloudflare_analytics_token }}"}'></script>
+	{% endif %}
 	{% for script in page.scripts %}
 	<script src="{{ script | relative_url }}"></script>
 	{% endfor %}

@@ -46,6 +46,11 @@ plugins:
   - jekyll-sitemap         # /sitemap.xml for search engines
   - jekyll-feed            # /feed.xml so readers can follow the blog
 
+# Visitor statistics: Cloudflare Web Analytics (free, no cookies, no consent banner needed).
+# Cloudflare dashboard -> Analytics & Logs -> Web Analytics -> Add a site -> copy the token
+# from the snippet it shows. Only loaded on the live site, not in local previews.
+cloudflare_analytics_token:
+
 # Search engines and link previews (used by jekyll-seo-tag)
 logo: /assets/icons/icon-512.png
 social_image: /assets/images/my_pic.jpg   # preview image for pages that have no image of their own
