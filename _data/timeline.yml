@@ -3,7 +3,7 @@
 #   date:     "YYYY" or YYYY-MM (shown as e.g. "Aug 2022")  (required)
 #   title:    short headline                                  (required)
 #   place:    where (optional)
-#   category: education | work | research | leadership | project | award
+#   category: education | work | research | volunteering | project | award
 #   text:     one or two sentences (optional)
 #   image:    optional small image on the card (use sparingly)
 #   link:     optional URL (makes the card clickable)
@@ -17,7 +17,7 @@
 - date: 2017-02
   title: Student Council President
   place: University of Tehran
-  category: leadership
+  category: volunteering
   text: Represented the students of the university.
 
 - date: "2017"
@@ -46,7 +46,8 @@
 - date: 2020-01
   title: Vice President, ECE Committee
   place: Alumni Association, Faculty of Engineering, University of Tehran
-  category: leadership
+  category: volunteering
+  text: One year with the alumni association of my faculty.
 
 - date: 2020-09
   title: Teaching Assistant
