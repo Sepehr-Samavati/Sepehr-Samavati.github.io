@@ -1,9 +1,9 @@
 # site settings
 title: Sepehr Samavati
-tagline: Software Engineer & Photographer   # shown after the name in the homepage's browser tab / search result
+tagline: Robotics PhD Student, Engineer & Photographer   # shown after the name in the homepage's browser tab / search result
 email: Sepehr.Samavati.Official@gmail.com
 avatar: /assets/images/my_pic.jpg
-description: "Personal website of Sepehr Samavati: software engineer and photographer based in Milan."
+description: "Personal website of Sepehr Samavati: robotics PhD student at Queen’s University (Canada), embedded software engineer and photographer."
 baseurl: "" # the subpath of your site, e.g. /blog
 url: https://sepehrsamavati.com # the base hostname & protocol for your site
 author:
@@ -11,10 +11,10 @@ author:
   twitter: SepehrSamavati
 lang: en_US
 street_address: 
-city: Milan
+city: Kingston
 state: 
 zip_code: 
-country: Italy
+country: Canada
 
 # homepage tiles
 tiles-source: pages # accepts "posts" or "pages"
@@ -94,7 +94,7 @@ defaults:
       path: "about.md"
     values:
       layout: about
-      description: "About Sepehr Samavati: software engineer in Milan, photographer, and leader at heart."
+      description: "About Sepehr Samavati: robotics PhD student at Queen’s University, embedded software engineer, photographer, and leader at heart."
       permalink: /about/
       nav-menu: true
       nav_order: 1

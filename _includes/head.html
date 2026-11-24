@@ -16,7 +16,8 @@
 		"name": {{ site.author.name | jsonify }},
 		"url": {{ "/" | absolute_url | jsonify }},
 		"image": {{ site.social_image | absolute_url | jsonify }},
-		"jobTitle": "Software Engineer",
+		"jobTitle": "PhD Student, Electrical and Computer Engineering (Robotics)",
+		"affiliation": { "@type": "CollegeOrUniversity", "name": "Queen’s University" },
 		"address": { "@type": "PostalAddress", "addressLocality": {{ site.city | jsonify }}, "addressCountry": {{ site.country | jsonify }} },
 		"alumniOf": [{% for edu in site.data.resume.education %}{ "@type": "CollegeOrUniversity", "name": {{ edu.school | jsonify }} }{% unless forloop.last %}, {% endunless %}{% endfor %}],
 		"sameAs": {{ site.social.links | jsonify }}
