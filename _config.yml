@@ -117,3 +117,4 @@ exclude:
 - .jekyll-cache/
 - .sass-cache/
 - node_modules/
+- Temp sources/
