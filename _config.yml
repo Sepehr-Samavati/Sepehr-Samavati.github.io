@@ -2,7 +2,7 @@
 title: Sepehr Samavati
 email: Sepehr.Samavati.Official@gmail.com
 avatar: /assets/images/my_pic.jpg
-description: I'm a software engineer. I'm a photographer. I'm a leader. And so much more. Want to know more?
+description: "Personal website of Sepehr Samavati: software engineer and photographer based in Milan."
 baseurl: "" # the subpath of your site, e.g. /blog
 url: https://sepehrsamavati.com # the base hostname & protocol for your site
 author:
@@ -50,6 +50,12 @@ collections:
 # Settings applied to files automatically, so content files (the ones edited
 # through Pages CMS) only need to contain content: title, text, images.
 defaults:
+  - scope:
+      path: "index.md"
+    values:
+      layout: home
+      title: Home
+      show_tile: false
   - scope:
       path: ""
       type: posts      # blog posts in _posts/

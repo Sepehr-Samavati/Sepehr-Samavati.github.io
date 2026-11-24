@@ -14,13 +14,14 @@
     {% include header.html %}
 
     <!-- Banner -->
-    <section id="banner" class="major">
+    {% assign banner = page.banner | default: false %}
+    <section id="banner" class="major"{% if banner %} style="background-image: url('{{ banner | relative_url }}');"{% endif %}>
         <div class="inner">
             <header class="major">
                 <h1>{{ page.landing-title }}</h1>
             </header>
             <div class="content">
-                <p>{{ site.description }}</p>
+                <p>{{ page.tagline | default: site.description }}</p>
                 <ul class="actions">
                     <li><a href="#one" class="button next scrolly">Know Me Better!</a></li>
                 </ul>
