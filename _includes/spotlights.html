@@ -10,7 +10,7 @@
 	{% comment %} default: false turns empty values ("") from the CMS into false {% endcomment %}
 	{% assign link = item.link | default: false %}{% assign image = item.image | default: false %}{% assign height = item.image_height | default: false %}{% assign dota = item.dota_account_id | default: false %}
 	<section{% unless image %} class="no-image"{% endunless %}>
-		{% capture img_style %}{% if height %} style="height:{{ height }}px"{% endif %}{% endcapture %}
+		{% capture img_style %}{% if height %} style="min-height:{{ height }}px"{% endif %}{% endcapture %}
 		{% if image %}
 		{% if link %}<a href="{{ link }}" class="image"{{ img_style }} target="_blank" rel="noopener noreferrer">{% else %}<span class="image"{{ img_style }}>{% endif %}
 			<img src="{{ image | relative_url }}" alt="{{ item.image_alt | default: item.title | escape }}" data-position="center center" />

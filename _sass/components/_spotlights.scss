@@ -126,6 +126,30 @@
 		margin-top: -1em;
 	}
 
+/* The image always fills the full height of its block, even when the text is taller */
+
+	.spotlights > section > .image {
+		align-self: stretch;
+		height: auto;
+
+		img {
+			height: 100% !important;
+			left: 0;
+			position: absolute;
+			top: 0;
+			width: 100%;
+		}
+
+		// Stacked layout (tablets/phones): the image is above the text and needs its own height
+		@include breakpoint(medium) {
+			min-height: 18em;
+		}
+
+		@include breakpoint(small) {
+			min-height: 14em;
+		}
+	}
+
 /* Entries without an image use the full width (no empty image area) */
 
 	.spotlights > section.no-image {
