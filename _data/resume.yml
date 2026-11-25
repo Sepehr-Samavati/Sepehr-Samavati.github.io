@@ -6,7 +6,7 @@
 # Consecutive roles at the same company are grouped under one company name.
 
 # Downloadable CV (PDF). Replace the file, or point this to another one.
-cv_file: /assets/files/Sepehr-Samavati-CV.pdf
+cv_file:                 # e.g. /assets/files/Sepehr-Samavati-CV.pdf (empty = no Download CV button)
 
 experience:
   - title: Firmware Engineer

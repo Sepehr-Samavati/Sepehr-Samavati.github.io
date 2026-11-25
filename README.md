@@ -79,7 +79,7 @@ All content is plain text files, so you can also edit them directly and preview 
   `link_label`, `order` or `date`, then the text).
 - **Resume:** edit `_data/resume.yml`. A job with an empty `end` is shown as your current role.
   Publications and certificates sections appear as soon as their lists have entries.
-- **CV (PDF):** replace `assets/files/Sepehr-Samavati-CV.pdf` (currently a TEST placeholder) or set `cv_file`.
+- **CV (PDF):** upload it to `assets/files/` (Pages CMS: Resume → CV file) and set `cv_file`. While `cv_file` is empty the Download CV button is hidden.
 - **Homepage banner photo:** set `banner:` in `index.md` (e.g. `/assets/images/my-photo.jpg`).
 - **Google Scholar link:** set `Google-Scholar:` under `socials` in `_config.yml`
   (adds the footer icon and the Resume button).
