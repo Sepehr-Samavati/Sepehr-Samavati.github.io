@@ -1,103 +1,73 @@
-# "My journey" timeline on the About page.
-# Entries are shown in the order of this file (oldest first).
-#   date:     "YYYY" or YYYY-MM (shown as e.g. "Aug 2022")  (required)
-#   title:    short headline                                  (required)
-#   place:    where (optional)
-#   category: education | work | research | volunteering | project | award
-#   text:     one or two sentences (optional)
-#   image:    optional small image on the card (use sparingly)
-#   link:     optional URL (makes the card clickable)
-
 - date: "2013"
   title: Bachelor’s in Electrical Engineering
   place: University of Tehran
   category: education
   text: Where it all started, circuits, signals and my first lines of code.
-
 - date: 2017-02
   title: Student Council President
   place: University of Tehran
   category: volunteering
   text: Represented the students of the university.
-
 - date: "2017"
   title: Graduated, B.Sc. Electrical Engineering
   place: University of Tehran
   category: education
-
 - date: 2017-10
   title: IEEEXtreme 11.0
   place: IEEE programming competition
   category: award
   text: 48th place, 2nd in the country.
-
 - date: 2017-10
   title: First paper, motion planning and obstacle avoidance
   place: IEEE
   category: research
   text: An optimal algorithm based on the finite-time velocity obstacle approach.
-
 - date: "2019"
   title: Master’s in Automation and Control Engineering
   place: Politecnico di Milano
   category: education
   text: A new chapter in Italy.
-
 - date: 2020-01
   title: Vice President, ECE Committee
   place: Alumni Association, Faculty of Engineering, University of Tehran
   category: volunteering
   text: One year with the alumni association of my faculty.
-
-- date: 2020-09
-  title: Teaching Assistant
-  place: University of Tehran
-  category: work
-  text: Communication Skills and Crucial Competence.
-
 - date: 2022-01
   title: Data Analysis Consultant
   place: 7SangTeam
   category: work
   text: Statistical methods and software to analyze employee engagement.
-
 - date: "2022"
   title: Tehran Constitutional Map app
   place: University of Tehran, Dept. of History
   category: project
   text: Android app mapping 160 historical places of the Constitutional Revolution.
   link: https://github.com/Sepehr-Samavati/Tehran-Constitutional-Map-Application
-
 - date: "2022"
   title: Graduated, M.Sc. Automation and Control Engineering
   place: Politecnico di Milano
   category: education
-
 - date: 2022-08
   title: Software Developer
   place: HCLTech (via Experis), for Ericsson
   category: work
   text: C++ and object-oriented design for Ericsson’s modems and radios.
-
 - date: 2022-10
   title: Paper at IEEE ITSC 2022
   place: Macau
   category: research
   text: Delay estimation for shared rides from GPS data.
   link: https://doi.org/10.1109/ITSC55140.2022.9922316
-
 - date: 2024-01
   title: Software Engineer
   place: HCLTech (via Experis), for Ericsson
   category: work
   text: Linux kernel, drivers, Yocto and U-Boot for modem boards.
-
 - date: 2025-06
   title: Firmware Engineer
   place: STIGA
   category: work
   text: Software for autonomous mowing robots, from behavior logic to embedded Linux.
-
 - date: 2026-09
   title: PhD in Electrical and Computer Engineering
   place: Queen’s University, Canada
